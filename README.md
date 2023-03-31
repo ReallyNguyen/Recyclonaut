@@ -1,10 +1,12 @@
-#Group Name
+# Group Members
 Jordan, Jillian, Mariela
 
-#Description
+# Description
+> App about recycling habits
 
-
-#Tools/Technology
+# Tools/Technology
 HTML, CSS, JS, Nextjs
 
-#command line
+# Command line
+- npm create-next-app
+- npm run dev
