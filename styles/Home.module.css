@@ -1,0 +1,47 @@
+.main {
+    background-image: url("/backgrounds/homebg.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    color: var(--pure-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.wordmark {
+    font-family: var(--headings);
+    font-weight: 700;
+}
+
+.tagline {
+    font-family: var(--buttons);
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 10rem;
+}
+
+.button {
+    width: 10rem;
+    height: 4rem;
+    font-family: var(--buttons);
+    font-size: x-large;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    border: 2px solid var(--pure-white);
+    color: var(--pure-white);
+}
+
+.button:hover {
+    border: none;
+    color: var(--russian-violet);
+    background-color: var(--pure-white);
+    cursor: pointer;
+}

@@ -15,13 +15,25 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-
-        <button className={styles.button} onClick={() => router.push('./quizintro')}>
-          quizintro!
-        </button>
-        <h1>Recyclonaut</h1>
+        <div className={styles.header}>
+          <h1 className={styles.wordmark}>RECYCLONAUT</h1>
+          <h3 className={styles.tagline}>Launching to a sustainable future!</h3>
+        </div>
+        <div className={styles.btns}>
+          <button className={styles.button} onClick={() => router.push('./story')}>
+            STORY
+          </button>
+          <button className={styles.button} onClick={() => router.push('./tutorial')}>
+            TUTORIAL
+          </button>
+          <button className={styles.button} onClick={() => router.push('./about')}>
+            ABOUT
+          </button>
+          <button className={styles.button} onClick={() => router.push('./quizintro')}>
+            QUIZ
+          </button>
+        </div>
       </main>
-
     </>
   )
 }
