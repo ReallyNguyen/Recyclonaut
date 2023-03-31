@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/QuizIntro.module.css'
 import { useRouter } from 'next/router'
+import Logo from '@/components/Logo'
 
 
 export default function Quiz() {
