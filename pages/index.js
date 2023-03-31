@@ -4,10 +4,6 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 9e688ee74bc9784b009a8e4838a8eb96a2764cb0
 export default function Home() {
   const router = useRouter()
   return (
@@ -19,15 +15,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-<<<<<<< HEAD
+
         <button className={styles.button} onClick={() => router.push('http://localhost:3000/quizintro')}>
           quizintro!
         </button>
-      </main >
-=======
         <h1>Recyclonaut</h1>
       </main>
->>>>>>> 9e688ee74bc9784b009a8e4838a8eb96a2764cb0
+
     </>
   )
 }
