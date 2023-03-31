@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
 
-        <button className={styles.button} onClick={() => router.push('http://localhost:3000/quizintro')}>
+        <button className={styles.button} onClick={() => router.push('./quizintro')}>
           quizintro!
         </button>
         <h1>Recyclonaut</h1>
