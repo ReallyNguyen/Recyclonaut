@@ -19,6 +19,7 @@
 
 .tagline {
     font-family: var(--buttons);
+    padding-top: 1rem;
 }
 
 .btns {

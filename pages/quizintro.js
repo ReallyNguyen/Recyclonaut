@@ -14,7 +14,7 @@ export default function Quiz() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
+            <main className={styles.main}>
                 <div className={styles.container}>
                     <div className={styles.intro}>
                         <p>Welcome aboard! I'm thrilled to have you join me. As we embark on this journey together,
@@ -33,9 +33,7 @@ export default function Quiz() {
                         </button>
                     </div>
                 </div>
-
             </main>
-
         </>
     )
 }
