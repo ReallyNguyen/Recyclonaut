@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    margin: 2.4rem;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    text-align: center;
+    padding-bottom: 2rem;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    max-width: 360px;
+}
+
+.button {
+    font-family: 'silkscreen';
+    border: 4px solid white;
+    border-radius: 15px;
+    font-size: 15px;
+    background-color: transparent;
+    color: white;
+    width: 100%;
+    height: 4rem;
+    max-width: 8rem;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 20rem;
+}
