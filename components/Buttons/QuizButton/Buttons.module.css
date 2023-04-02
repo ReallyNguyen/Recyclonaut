@@ -6,19 +6,27 @@
 }
 
 .buttons>button {
-    font-family: 'Montserrat', 'semibold';
-    border: 4px solid black;
-    border-radius: 15px;
+    color: var(--pure-white);
+    font-family: var(--body-text);
     font-size: 15px;
-    background-color: transparent;
     width: 100%;
     max-width: 15rem;
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .buttons>button:hover {
-    background-color: var(--syracuse-orange);
+    background: rgb(200, 76, 9);
+    background: linear-gradient(135deg, rgba(200, 76, 9, 0.4) 0%, rgba(200, 76, 9, 0.1) 100%);
+    border: 1px solid rgba(200, 76, 9, 0.3);
 }
 
 .buttons>button.active {
-    background-color: var(--dogwood-rose);
+    background: rgb(217, 3, 104);
+    background: linear-gradient(135deg, rgba(217, 3, 104, 0.4) 0%, rgba(217, 3, 104, 0.1) 100%);
+    border: 1px solid rgba(217, 3, 104, 0.3);
 }
