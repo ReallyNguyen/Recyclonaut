@@ -1,0 +1,42 @@
+[
+    {
+        "questionNumber": "One",
+        "option": "Repurpose them"
+    },
+    {
+        "questionNumber": "One",
+        "option": "Throw them out"
+    },
+    {
+        "questionNumber": "One",
+        "option": "Donate them"
+    },
+    {
+        "questionNumber": "Two",
+        "option": "Thrift stores"
+    },
+    {
+        "questionNumber": "Two",
+        "option": "Eco-friendly brands"
+    },
+    {
+        "questionNumber": "Two",
+        "option": "Fast fashion brands"
+    },
+    {
+        "questionNumber": "Three",
+        "option": "Yes, I use reusable products"
+    },
+    {
+        "questionNumber": "Three",
+        "option": "No, I never use reusable products"
+    },
+    {
+        "questionNumber": "Four",
+        "option": "Yes, I recycle"
+    },
+    {
+        "questionNumber": "Four",
+        "option": "No, I never recycle"
+    }
+]

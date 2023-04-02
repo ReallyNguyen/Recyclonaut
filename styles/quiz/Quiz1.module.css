@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.main {
+    margin: 2rem;
+}
+
+.question {
+    text-align: center;
+}
+
+.quiz_container {
+    background-color: #f0f0f0;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}

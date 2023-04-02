@@ -6,6 +6,7 @@ import Logo from '@/components/Logo'
 
 
 export default function Quiz() {
+    const router = useRouter()
     return (
         <>
             <Head>
@@ -28,7 +29,7 @@ export default function Quiz() {
                         <button className={styles.button}>
                             Back
                         </button>
-                        <button className={styles.button}>
+                        <button className={styles.button} onClick={() => router.push('./quiz/quiz1')}>
                             Quiz
                         </button>
                     </div>

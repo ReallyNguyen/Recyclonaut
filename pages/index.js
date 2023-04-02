@@ -20,7 +20,7 @@ export default function Home() {
           <h3 className={styles.tagline}>Launching to a sustainable future!</h3>
         </div>
         <div className={styles.btns}>
-          <button className={styles.button} onClick={() => router.push('./story')}>
+          <button className={styles.button} onClick={() => router.push('./quizintro')}>
             STORY
           </button>
           <button className={styles.button} onClick={() => router.push('./tutorial')}>
