@@ -14,3 +14,11 @@
     width: 100%;
     max-width: 15rem;
 }
+
+.buttons>button:hover {
+    background-color: var(--syracuse-orange);
+}
+
+.buttons>button.active {
+    background-color: var(--dogwood-rose);
+}

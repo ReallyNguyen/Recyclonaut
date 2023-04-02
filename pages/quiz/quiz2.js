@@ -7,7 +7,7 @@ import Logo from '@/components/Logo'
 import MenuBurger from '@/components/MenuBurger'
 import ProgressBar from '@/components/ProgressBar'
 import { useState } from 'react'
-import Buttons from '@/components/Buttons'
+import Buttons from '@/components/Buttons/QuizButton'
 
 
 export default function Quiz2() {

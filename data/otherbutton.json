@@ -1,0 +1,21 @@
+[
+    {
+        "buttons": "Begin",
+        "back": "back",
+        "quiz": "quiz"
+    },
+    {
+        "buttons": "Quiz",
+        "back": "back",
+        "quiz": "quiz"
+    },
+    {
+        "buttons": "Submit",
+        "back": "back",
+        "quiz": "submit"
+    },
+    {
+        "buttons": "Result",
+        "accept": "accept"
+    }
+]
