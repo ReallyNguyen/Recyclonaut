@@ -2,17 +2,20 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/quiz/Quiz1.module.css'
 import { useRouter } from 'next/router'
-import data from '@/data/quiz.json'
+import quizdata from '@/data/quiz.json'
+import buttondata from '@/data/otherbutton.json'
 import Logo from '@/components/Logo'
 import MenuBurger from '@/components/MenuBurger'
 import ProgressBar from '@/components/ProgressBar'
 import { useState } from 'react'
 import Buttons from '@/components/Buttons/QuizButton'
+import OtherButton from '@/components/Buttons/OtherButton'
 
 
 export default function Quiz2() {
-    console.log(data);
-    const [question, setQuestion] = useState([...data])
+
+    const [question, setQuestion] = useState([...quizdata])
+    const [button, setButton] = useState([...buttondata])
 
     return (
         <>
@@ -39,11 +42,25 @@ export default function Quiz2() {
                                     <>
                                         <Buttons key={index} option={info.option} buttons="3" />
                                     </>
-
                                 )
                             }
                         })
                     }
+                </div>
+
+                <div className={styles.back_and_next}>
+                    {button.map((info, index) => {
+                        if (info.buttons.toLowerCase() === 'quiz') {
+                            return (
+                                <OtherButton
+                                    key={index}
+                                    back={info.back}
+                                    next={info.next}
+                                    type="quiz"
+                                />
+                            );
+                        }
+                    })}
                 </div>
 
             </main >

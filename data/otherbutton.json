@@ -7,12 +7,12 @@
     {
         "buttons": "Quiz",
         "back": "back",
-        "quiz": "quiz"
+        "next": "next"
     },
     {
         "buttons": "Submit",
         "back": "back",
-        "quiz": "submit"
+        "submit": "submit"
     },
     {
         "buttons": "Result",
