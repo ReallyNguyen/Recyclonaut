@@ -20,13 +20,11 @@
 }
 
 .buttons>button:hover {
-    background: rgb(200, 76, 9);
     background: linear-gradient(135deg, rgba(200, 76, 9, 0.4) 0%, rgba(200, 76, 9, 0.1) 100%);
     border: 1px solid rgba(200, 76, 9, 0.3);
 }
 
 .buttons>button.active {
-    background: rgb(217, 3, 104);
     background: linear-gradient(135deg, rgba(217, 3, 104, 0.4) 0%, rgba(217, 3, 104, 0.1) 100%);
     border: 1px solid rgba(217, 3, 104, 0.3);
 }
