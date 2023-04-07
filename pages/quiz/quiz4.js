@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/quiz/Quiz1.module.css'
+import styles from '@/styles/quiz/Quiz.module.css'
 import { useRouter } from 'next/router'
 import quizdata from '@/data/quiz.json'
 import buttondata from '@/data/otherbutton.json'
@@ -57,6 +57,8 @@ export default function Quiz3() {
                                     back={info.back}
                                     submit={info.submit}
                                     type="submit"
+                                    hrefBack="/quiz/quiz3"
+                                    hrefNext="none"
                                 />
                             );
                         }

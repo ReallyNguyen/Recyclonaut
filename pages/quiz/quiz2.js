@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/quiz/Quiz1.module.css'
+import styles from '@/styles/quiz/Quiz.module.css'
 import { useRouter } from 'next/router'
 import quizdata from '@/data/quiz.json'
 import buttondata from '@/data/otherbutton.json'
@@ -16,6 +16,18 @@ export default function Quiz2() {
 
     const [question, setQuestion] = useState([...quizdata])
     const [button, setButton] = useState([...buttondata])
+    const [score, setScore] = useState(0);
+
+    const updateScore = (points) => {
+        setScore(points);
+    };
+    const Quiz = () => {
+        const [score, setScore] = useState(0);
+
+        const updateScore = (points) => {
+            setScore(score + points);
+        }
+    };
 
     return (
         <>
@@ -32,21 +44,27 @@ export default function Quiz2() {
                 </div>
 
                 <ProgressBar percentage={50} />
-
-                <div className={styles.quiz_container}>
-                    <h2 className={styles.question}>2. Where do you shop frequently? </h2>
-                    {
-                        question && question.map((info, index) => {
-                            if (info.questionNumber.toLowerCase() === "two") {
-                                return (
-                                    <>
-                                        <Buttons key={index} option={info.option} buttons="3" />
-                                    </>
-                                )
-                            }
-                        })
-                    }
+                <div>
+                    <div className={styles.quiz_container}>
+                        {question &&
+                            question.map((info, index) => {
+                                if (info && info.questionID && info.questionID.toLowerCase() === "two") {
+                                    return (
+                                        <div key={index}>
+                                            <h3>{info.question}</h3>
+                                            {info.options.map((option, optionIndex) => (
+                                                <Buttons key={optionIndex} option={option} buttons="3" updateScore={updateScore} />
+                                            ))}
+                                        </div>
+                                    );
+                                }
+                            })}
+                    </div>
+                    <p>Score: {score}</p>
                 </div>
+
+
+
 
                 <div className={styles.back_and_next}>
                     {button.map((info, index) => {
@@ -57,11 +75,14 @@ export default function Quiz2() {
                                     back={info.back}
                                     next={info.next}
                                     type="quiz"
+                                    hrefBack="/quiz/quiz1"
+                                    hrefNext="/quiz/quiz3"
                                 />
                             );
                         }
                     })}
                 </div>
+
 
             </main >
         </>

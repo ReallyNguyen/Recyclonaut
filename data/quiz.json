@@ -1,42 +1,66 @@
 [
     {
-        "questionNumber": "One",
-        "option": "Repurpose them"
+        "questionID": "One",
+        "question": "What do you do with your old clothes?",
+        "options": [
+            {
+                "option": "Repurpose them",
+                "point": 2
+            },
+            {
+                "option": "Throw them out",
+                "point": 0
+            },
+            {
+                "option": "Donate them",
+                "point": 1
+            }
+        ]
     },
     {
-        "questionNumber": "One",
-        "option": "Throw them out"
+        "questionID": "Two",
+        "question": "Where do you shop frequently?",
+        "options": [
+            {
+                "option": "Thrift stores",
+                "point": 1
+            },
+            {
+                "option": "Eco-friendly brands",
+                "point": 2
+            },
+            {
+                "option": "Fast fashion brands",
+                "point": 0
+            }
+        ]
     },
     {
-        "questionNumber": "One",
-        "option": "Donate them"
+        "questionID": "Three",
+        "question": "Do you use reusable products?",
+        "options": [
+            {
+                "option": "Yes, I use reusable products",
+                "point": 2
+            },
+            {
+                "option": "No, I never use reusable products",
+                "point": 0
+            }
+        ]
     },
     {
-        "questionNumber": "Two",
-        "option": "Thrift stores"
-    },
-    {
-        "questionNumber": "Two",
-        "option": "Eco-friendly brands"
-    },
-    {
-        "questionNumber": "Two",
-        "option": "Fast fashion brands"
-    },
-    {
-        "questionNumber": "Three",
-        "option": "Yes, I use reusable products"
-    },
-    {
-        "questionNumber": "Three",
-        "option": "No, I never use reusable products"
-    },
-    {
-        "questionNumber": "Four",
-        "option": "Yes, I recycle"
-    },
-    {
-        "questionNumber": "Four",
-        "option": "No, I never recycle"
+        "questionID": "Four",
+        "question": "What products do you recycle?",
+        "options": [
+            {
+                "option": "Yes, I recycle",
+                "point": 1
+            },
+            {
+                "option": "No, I never recycle",
+                "point": 0
+            }
+        ]
     }
 ]

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/quiz/Quiz1.module.css'
+import styles from '@/styles/quiz/Quiz.module.css'
 import { useRouter } from 'next/router'
 import quizdata from '@/data/quiz.json'
 import buttondata from '@/data/otherbutton.json'
@@ -15,6 +15,47 @@ import OtherButton from '@/components/Buttons/OtherButton'
 export default function Quiz1() {
     const [question, setQuestion] = useState([...quizdata])
     const [button, setButton] = useState([...buttondata])
+
+    const Quiz = () => {
+        const [score, setScore] = useState(0);
+
+        const updateScore = (points) => {
+            setScore(points);
+        };
+
+
+        const questions = [
+            {
+                questionNumber: 'One',
+                options: [
+                    { option: 'Repurpose them', point: 2 },
+                    { option: 'Throw them out', point: 0 },
+                    { option: 'Donate them', point: 1 },
+                ],
+            },
+            // add more questions here
+        ];
+
+        return (
+            <div>
+                {questions.map((question, index) => (
+                    <div key={index}>
+                        <h2>{question.questionNumber}</h2>
+                        {question.options.map((option, index) => (
+                            <Buttons
+                                key={index}
+                                option={option}
+                                buttons="3"
+                                updateScore={updateScore}
+                            />
+                        ))}
+                    </div>
+                ))}
+                <p>Your score: {score}</p>
+            </div>
+        );
+    };
+
     return (
         <>
             <Head>
@@ -32,18 +73,7 @@ export default function Quiz1() {
                 <ProgressBar percentage={25} />
 
                 <div className={styles.quiz_container}>
-                    <h2 className={styles.question}>1. What do you do with your old clothes? </h2>
-                    {
-                        question && question.map((info, index) => {
-                            if (info.questionNumber.toLowerCase() === "one") {
-                                return (
-                                    <>
-                                        <Buttons key={index} option={info.option} buttons="3" />
-                                    </>
-                                )
-                            }
-                        })
-                    }
+                    <Quiz />
                 </div>
 
                 <div className={styles.back_and_next}>
@@ -55,6 +85,8 @@ export default function Quiz1() {
                                     back={info.back}
                                     next={info.next}
                                     type="quiz"
+                                    hrefBack="none"
+                                    hrefNext="/quiz/quiz2"
                                 />
                             );
                         }
