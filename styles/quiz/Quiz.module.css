@@ -4,10 +4,11 @@
 }
 
 .main {
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--dark-mode);
     color: var(--pure-white);
     font-family: var(--body-text);
+    padding-bottom: 2rem;
 }
 
 .question {
