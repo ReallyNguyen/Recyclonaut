@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import styles from "./ProgressBar.module.css";
 
-export default function ProgressBar({ percentage = 0 }) {
+export default function ProgressBar({ questionIndex, totalQuestions }) {
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
+        const percentage = ((questionIndex - 1) / totalQuestions) * 100;
         setWidth(`${percentage}%`);
-    }, [percentage]);
+    }, [questionIndex, totalQuestions]);
 
     return (
         <div className={styles.progress}>

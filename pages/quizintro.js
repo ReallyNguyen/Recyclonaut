@@ -29,7 +29,7 @@ export default function Quiz() {
                         <button className={styles.button}>
                             Back
                         </button>
-                        <button className={styles.button} onClick={() => router.push('./quiz/quiz1')}>
+                        <button className={styles.button} onClick={() => router.push('./quiz/quiz')}>
                             Quiz
                         </button>
                     </div>
