@@ -1,9 +1,22 @@
 import styles from './MenuBurger.module.css'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function MenuBurger() {
     const [menu, setMenu] = useState(false);
+    const menuRef = useRef();
+
+    useEffect(() => {
+        const closeMenu = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setMenu(false);
+        }
+        };
+        document.addEventListener('mousedown', closeMenu);
+        return () => {
+            document.removeEventListener('mousedown', closeMenu);
+        };
+    }, [menuRef]);
     
     return (
         <>
@@ -14,7 +27,7 @@ export default function MenuBurger() {
             </div>
             {
                 menu === true ?
-                    <div className={styles.openMenu}>
+                    <div ref={menuRef} className={styles.openMenu}>
                         <Link className={styles.link} href="/">Home</Link>
                         <Link className={styles.link} href="/quizintro">Quiz</Link>
                         <Link className={styles.link} href="/story">Story</Link>
