@@ -21,7 +21,9 @@ export default function Loading() {
     <>
         <div className={styles.main}>
             <div className={styles.logo}>
-                <Logo />
+                <Logo 
+                  page="loading"
+                />
             </div>
             <div className={styles.orbit}>
                 <Image className={styles.rocket} src={'/icons/rocket.png'} width={40} height={50}/>

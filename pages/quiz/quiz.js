@@ -10,6 +10,7 @@ import ProgressBar from '@/components/ProgressBar'
 import { useState, useEffect } from 'react'
 import Buttons from '@/components/Buttons/QuizButton'
 import OtherButton from '@/components/Buttons/OtherButton'
+import NavBar from '@/components/NavBar'
 
 export default function Quiz() {
     const [questionIndex, setQuestionIndex] = useState(1);
@@ -63,8 +64,7 @@ export default function Quiz() {
             </Head>
             <main className={styles.main}>
                 <div className={styles.header}>
-                    <Logo page="intro" />
-                    <MenuBurger />
+                    <NavBar />
                 </div>
                 <ProgressBar questionIndex={questionIndex} totalQuestions={quizdata.length} />
                 <div>

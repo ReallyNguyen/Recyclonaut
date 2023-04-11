@@ -12,9 +12,8 @@ export default function Logo({
             {
                 page === "quiz" ? <Image src={Recyclonaut} width={20} height={20} style={{ maxWidth: "100%" }} /> :
                     page === "intro" ? <Image src={Recyclonaut} width={100} height={80} /> :
-                        page === "quiz" ? <Image src={Recyclonaut} width={20} height={20} /> :
-                            page === "intro" ? <Image src={Recyclonaut} width={200} height={50} /> :
-                                <Image src={Recyclonaut} width={200} height={180} />
+                        page === "loading" ? <Image src={Recyclonaut} width={200} height={180} /> :
+                            <Image src={Recyclonaut} width={100} height={80} />
             }
         </div>
     );
