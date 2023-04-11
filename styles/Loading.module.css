@@ -1,0 +1,52 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    min-height: 100vh;
+}
+
+.logo {
+    position: absolute;
+    top: 14rem;
+}
+
+.orbit {
+    height: 330px;
+    width: 330px;
+    border-radius: 50%;
+    animation: spin 4s infinite linear;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rocket {
+    position: relative;
+    left: -10px;
+    top: 115px;
+}
+
+.text {
+    text-align: center;
+    gap: 1rem;
+}
+
+.heading {
+    font-family: var(--headings);
+    color: var(--russian-violet)
+}
+
+.credits {
+    font-family: var(--body-text);
+}
+
+@media only screen and (max-width: 414px) {
+    .logo {
+        top: 18rem;
+    }
+}

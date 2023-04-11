@@ -14,7 +14,7 @@ export default function Logo({
                     page === "intro" ? <Image src={Recyclonaut} width={100} height={80} /> :
                         page === "quiz" ? <Image src={Recyclonaut} width={20} height={20} /> :
                             page === "intro" ? <Image src={Recyclonaut} width={200} height={50} /> :
-                                <Image src={Recyclonaut} width={100} height={80} />
+                                <Image src={Recyclonaut} width={200} height={180} />
             }
         </div>
     );
