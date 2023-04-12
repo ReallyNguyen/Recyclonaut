@@ -4,13 +4,12 @@ import styles from '@/styles/quiz/Quiz.module.css'
 import { useRouter } from 'next/router'
 import quizdata from '@/data/quiz.json'
 import buttondata from '@/data/otherbutton.json'
-import Logo from '@/components/Logo'
-import MenuBurger from '@/components/MenuBurger'
 import ProgressBar from '@/components/ProgressBar'
 import { useState, useEffect } from 'react'
 import Buttons from '@/components/Buttons/QuizButton'
 import OtherButton from '@/components/Buttons/OtherButton'
 import NavBar from '@/components/NavBar'
+
 
 export default function Quiz() {
     const [questionIndex, setQuestionIndex] = useState(1);
@@ -19,6 +18,9 @@ export default function Quiz() {
     const [score, setScore] = useState(0);
     const [nextClicked, setNextClicked] = useState(false);
     const [selectedOptions, setSelectedOptions] = useState({});
+    const [quizCompleted, setQuizCompleted] = useState(false);
+    const [results, setResults] = useState([]);
+
 
     const updateScore = (questionID, optionIndex, points) => {
         const currentOptionIndex = selectedOptions[questionID];
@@ -32,7 +34,16 @@ export default function Quiz() {
             ...selectedOptions,
             [questionID]: optionIndex
         });
+
+        const selectedQuestion = question.find(q => q.questionID === questionID); // Find the question object based on questionID
+        const selectedOption = selectedQuestion.options[optionIndex].option; // Get the selected option based on optionIndex
+        const questionText = selectedQuestion.question; // Get the question text from the selected question object
+
+        // Update results with the selected question and option
+        setResults([...results, { question: questionText, selectedOption }]);
+
     };
+
 
     useEffect(() => {
         setQuestion([...quizdata].slice(questionIndex - 1, questionIndex));
@@ -40,11 +51,48 @@ export default function Quiz() {
 
     const handleNextQuestion = () => {
         const activeButton = document.querySelector(`.${styles.buttons} button.${styles.active}`);
+        console.log(questionIndex)
         if (activeButton) {
             activeButton.classList.remove(styles.active);
         }
+        if (questionIndex === 4) {
+            setQuizCompleted(true);
+        }
         setQuestionIndex(questionIndex + 1);
     };
+
+    if (quizCompleted && score === 6) {
+        return (
+            <div>
+                <h1>Results</h1>
+                <p>Score: {score}</p>
+                <p>Hi</p>
+                {results.map((result, index) => (
+                    <div key={index}>
+                        <h3>Question: {result.question}</h3>
+                        <p>Selected Option: {result.selectedOption}</p>
+                        <p>{result.result}</p>
+                    </div>
+                ))}
+            </div>
+        );
+    } else if (quizCompleted && score === 4) {
+        return (
+            <div>
+                <h1>Results</h1>
+                <p>Score: {score}</p>
+                <p>boo</p>
+                {results.map((result, index) => (
+                    <div key={index}>
+                        <h3>Question: {result.question}</h3>
+                        <p>Selected Option: {result.selectedOption}</p>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
+
 
     const handleBackQuestion = () => {
         setQuestionIndex(questionIndex - 1);
@@ -52,6 +100,9 @@ export default function Quiz() {
         buttons.forEach((button) => {
             button.classList.remove(styles.active);
         });
+        if (questionIndex === 1) {
+            setNextClicked(true);
+        }
     };
 
     return (
@@ -76,16 +127,17 @@ export default function Quiz() {
                                     <Buttons
                                         key={`${questionIndex}-${optionIndex}`}
                                         option={option}
-                                        buttons="3"
+                                        buttons={info.questionID === "One" || info.questionID === "Two" ? "3" : "2"}
                                         selected={selectedOptions[info.questionID] === optionIndex}
                                         updateScore={(points) => updateScore(info.questionID, optionIndex, points)}
                                         disableButtons={nextClicked}
                                     />
-
                                 ))}
                             </div>
                         ))}
                     </div>
+                    <p>Score: {score}</p>
+
                     <p>Score: {score}</p>
                 </div>
                 <div className={styles.back_and_next}>

@@ -47,7 +47,7 @@
         "options": [
             {
                 "option": "Yes, I use reusable products",
-                "point": 2,
+                "point": 1,
                 "result": "test"
             },
             {
