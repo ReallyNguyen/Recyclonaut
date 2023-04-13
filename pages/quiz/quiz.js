@@ -71,7 +71,6 @@ export default function Quiz() {
                     <div key={index}>
                         <h3>Question: {result.question}</h3>
                         <p>Selected Option: {result.selectedOption}</p>
-                        <p>{result.result}</p>
                     </div>
                 ))}
             </div>
