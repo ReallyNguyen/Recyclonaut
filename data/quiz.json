@@ -1,6 +1,11 @@
 [
     {
-        "questionID": "One",
+        "questionID": 1,
+        "img": [
+            "quiz/jacket.png",
+            "quiz/sweater.png",
+            "quiz/jeans.png"
+        ],
         "question": "What do you do with your old clothes?",
         "options": [
             {
@@ -21,7 +26,8 @@
         ]
     },
     {
-        "questionID": "Two",
+        "questionID": 2,
+        "img": "quiz/store.png",
         "question": "Where do you shop frequently?",
         "options": [
             {
@@ -42,7 +48,11 @@
         ]
     },
     {
-        "questionID": "Three",
+        "questionID": 3,
+        "img": [
+            "quiz/bag.png",
+            "quiz/cup.png"
+        ],
         "question": "Do you use reusable products?",
         "options": [
             {
@@ -58,7 +68,8 @@
         ]
     },
     {
-        "questionID": "Four",
+        "questionID": 4,
+        "img": "quiz/bottles.png",
         "question": "What products do you recycle?",
         "options": [
             {

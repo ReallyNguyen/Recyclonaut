@@ -1,3 +1,12 @@
+.container {
+    padding: 10px 30px 0px 30px;
+}
+
+.percent {
+    font-family: var(--headings);
+    padding-bottom: 10px;
+}
+
 .progress {
     background-color: #ddd;
     height: 20px;
