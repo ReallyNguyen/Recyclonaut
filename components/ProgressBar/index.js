@@ -10,8 +10,13 @@ export default function ProgressBar({ questionIndex, totalQuestions }) {
     }, [questionIndex, totalQuestions]);
 
     return (
-        <div className={styles.progress}>
-            <div className={styles.progress_bar} style={{ width }}></div>
-        </div>
+        <>
+            <div className={styles.container}>
+                <h1 className={styles.percent}>{width}</h1>
+                <div className={styles.progress}>
+                    <div className={styles.progress_bar} style={{ width }}></div>
+                </div>
+            </div>
+        </>
     );
 }
