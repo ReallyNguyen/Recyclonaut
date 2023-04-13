@@ -10,7 +10,6 @@ import Buttons from '@/components/Buttons/QuizButton'
 import OtherButton from '@/components/Buttons/OtherButton'
 import NavBar from '@/components/NavBar'
 
-
 export default function Quiz() {
     const [questionIndex, setQuestionIndex] = useState(1);
     const [question, setQuestion] = useState([...quizdata]);
@@ -20,7 +19,7 @@ export default function Quiz() {
     const [selectedOptions, setSelectedOptions] = useState({});
     const [quizCompleted, setQuizCompleted] = useState(false);
     const [results, setResults] = useState([]);
-
+    const [disable, setDisable] = useState(false);
 
     const updateScore = (questionID, optionIndex, points) => {
         const currentOptionIndex = selectedOptions[questionID];
@@ -41,9 +40,8 @@ export default function Quiz() {
 
         // Update results with the selected question and option
         setResults([...results, { question: questionText, selectedOption }]);
-
+        setDisable(true);
     };
-
 
     useEffect(() => {
         setQuestion([...quizdata].slice(questionIndex - 1, questionIndex));
@@ -58,6 +56,7 @@ export default function Quiz() {
         if (questionIndex === 4) {
             setQuizCompleted(true);
         }
+        setDisable(false);
         setQuestionIndex(questionIndex + 1);
     };
 
@@ -91,8 +90,6 @@ export default function Quiz() {
             </div>
         );
     }
-
-
 
     const handleBackQuestion = () => {
         setQuestionIndex(questionIndex - 1);
@@ -162,6 +159,7 @@ export default function Quiz() {
                                     type="quiz"
                                     onNext={handleNextQuestion}
                                     onBack={handleBackQuestion}
+                                    disabled={!disable}
                                 />
                             );
                         }

@@ -7,7 +7,8 @@ export default function OtherButton({
     hrefBack = '#',
     hrefNext = '#',
     onNext,
-    onBack
+    onBack,
+    disabled
 }) {
     return (
         <div className={styles.container}>
@@ -24,7 +25,7 @@ export default function OtherButton({
                 <div className={styles.buttons}>
                     <button className={styles.button} onClick={onBack}>
                         Back</button>
-                    <button className={styles.button} onClick={onNext}>
+                    <button className={styles.button} onClick={onNext} disabled={disabled}>
                         Next
                     </button>
                 </div>
