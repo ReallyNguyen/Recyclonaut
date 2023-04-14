@@ -35,12 +35,14 @@ export default function Quiz() {
         });
 
         const selectedQuestion = question.find(q => q.questionID === questionID); // Find the question object based on questionID
-        const selectedOption = selectedQuestion.options[optionIndex].option; // Get the selected option based on optionIndex
+        const selectedOption = selectedQuestion.options[optionIndex]; // Get the selected option object based on optionIndex
         const questionText = selectedQuestion.question; // Get the question text from the selected question object
+        const selectedResult = selectedOption.result; // Get the result from the selected option object
 
-        // Update results with the selected question and option
-        setResults([...results, { question: questionText, selectedOption }]);
+        // Update results with the selected question, option, and result
+        setResults([...results, { question: questionText, selectedOption: selectedOption.option, result: selectedResult }]);
         setDisable(true);
+
     };
 
     useEffect(() => {
@@ -70,6 +72,7 @@ export default function Quiz() {
                     <div key={index}>
                         <h3>Question: {result.question}</h3>
                         <p>Selected Option: {result.selectedOption}</p>
+                        <p>{result.result}</p>
                     </div>
                 ))}
             </div>
@@ -143,8 +146,6 @@ export default function Quiz() {
                             </div>
                         ))}
                     </div>
-                    <p>Score: {score}</p>
-
                     <p>Score: {score}</p>
                 </div>
                 <div className={styles.back_and_next}>
