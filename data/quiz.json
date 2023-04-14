@@ -11,17 +11,17 @@
             {
                 "option": "Repurpose them",
                 "point": 2,
-                "result": "test"
+                "result": "Good job"
             },
             {
                 "option": "Throw them out",
                 "point": 0,
-                "result": "test"
+                "result": "Not the best choice. Consider repurposing or donating them next time."
             },
             {
                 "option": "Donate them",
                 "point": 1,
-                "result": "test"
+                "result": "Good effort! Donating old clothes is a great way to give them a second life."
             }
         ]
     },
@@ -31,19 +31,19 @@
         "question": "Where do you shop frequently?",
         "options": [
             {
-                "option": "Thrift stores",
+                "option": "Eco-friendly brands",
                 "point": 1,
-                "result": "test"
+                "result": "You're making sustainable choices!"
             },
             {
-                "option": "Eco-friendly brands",
+                "option": "Thrift stores",
                 "point": 2,
-                "result": "test"
+                "result": "Great job! Thrift stores are an excellent way to reduce waste and support sustainability."
             },
             {
                 "option": "Fast fashion brands",
                 "point": 0,
-                "result": "test"
+                "result": "Consider exploring more sustainable options to reduce your environmental impact."
             }
         ]
     },
@@ -58,12 +58,12 @@
             {
                 "option": "Yes, I use reusable products",
                 "point": 1,
-                "result": "test"
+                "result": "Good job! Using reusable products is a great way to reduce waste and help the environment."
             },
             {
                 "option": "No, I never use reusable products",
                 "point": 0,
-                "result": "test"
+                "result": "Start using reusable products! They are a sustainable choice that can make a positive impact on the environment."
             }
         ]
     },
@@ -75,12 +75,12 @@
             {
                 "option": "Yes, I recycle",
                 "point": 1,
-                "result": "test"
+                "result": "Good job! Recycling is an important practice that helps reduce waste and conserve resources."
             },
             {
                 "option": "No, I never recycle",
                 "point": 0,
-                "result": "test"
+                "result": "Start recycling today! Recycling is an easy and effective way to contribute to a more sustainable future."
             }
         ]
     }
