@@ -39,8 +39,10 @@ export default function Quiz() {
         const questionText = selectedQuestion.question; // Get the question text from the selected question object
         const selectedResult = selectedOption.result; // Get the result from the selected option object
 
+        const updatedResults = results.filter(r => r.question !== questionText); // Remove previously selected options from results with filter and arrow function
+
         // Update results with the selected question, option, and result
-        setResults([...results, { question: questionText, selectedOption: selectedOption.option, result: selectedResult }]);
+        setResults([...updatedResults, { question: questionText, selectedOption: selectedOption.option, result: selectedResult }]);
         setDisable(true);
 
     };
@@ -62,7 +64,7 @@ export default function Quiz() {
         setQuestionIndex(questionIndex + 1);
     };
 
-    if (quizCompleted && score === 6) {
+    if (quizCompleted && score >= 5 && score <= 6) {
         return (
             <div>
                 <h1>Results</h1>
@@ -77,7 +79,7 @@ export default function Quiz() {
                 ))}
             </div>
         );
-    } else if (quizCompleted && score === 4) {
+    } else if (quizCompleted && score >= 3 && score <= 4) {
         return (
             <div>
                 <h1>Results</h1>
@@ -87,6 +89,22 @@ export default function Quiz() {
                     <div key={index}>
                         <h3>Question: {result.question}</h3>
                         <p>Selected Option: {result.selectedOption}</p>
+                        <p>{result.result}</p>
+                    </div>
+                ))}
+            </div>
+        );
+    } else if (quizCompleted && score >= 1 && score <= 2) {
+        return (
+            <div>
+                <h1>Results</h1>
+                <p>Score: {score}</p>
+                <p>boo</p>
+                {results.map((result, index) => (
+                    <div key={index}>
+                        <h3>Question: {result.question}</h3>
+                        <p>Selected Option: {result.selectedOption}</p>
+                        <p>{result.result}</p>
                     </div>
                 ))}
             </div>
