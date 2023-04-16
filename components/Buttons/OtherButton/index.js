@@ -8,7 +8,8 @@ export default function OtherButton({
     hrefNext = '#',
     onNext,
     onBack,
-    disabled
+    disabled,
+    info // Added info prop to access info.questionIndex
 }) {
     return (
         <div className={styles.container}>
@@ -24,9 +25,19 @@ export default function OtherButton({
             ) : type === 'quiz' ? (
                 <div className={styles.buttons}>
                     <button className={styles.button} onClick={onBack}>
-                        Back</button>
+                        Back
+                    </button>
                     <button className={styles.button} onClick={onNext} disabled={disabled}>
                         Next
+                    </button>
+                </div>
+            ) : type === 'submit' ? (
+                <div className={styles.buttons}>
+                    <button className={styles.button} onClick={onBack}>
+                        Back
+                    </button>
+                    <button className={styles.button} onClick={onNext} disabled={disabled}>
+                        Submit
                     </button>
                 </div>
             ) : null}

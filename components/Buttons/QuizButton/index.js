@@ -29,7 +29,7 @@ export default function Buttons({
         <div className={styles.buttons}>
             {buttons === '3' ? (
                 <button
-                    style={{ height: '5rem' }}
+                    style={{ height: '3rem' }}
                     className={`${isActive ? styles.active : ''}`} //If isActive is true, then it adds the styles.active class to the button. If isActive is false, then it adds an empty string to the class name.
                     onClick={handleClick}
                     disabled={disableButtons}
@@ -38,7 +38,7 @@ export default function Buttons({
                 </button>
             ) : buttons === '2' ? (
                 <button
-                    style={{ height: '8rem' }}
+                    style={{ height: '6rem' }}
                     className={`${isActive ? styles.active : ''}`}
                     onClick={handleClick}
                     disabled={disableButtons}

@@ -38,7 +38,6 @@ export default function Quiz() {
         const selectedOption = selectedQuestion.options[optionIndex]; // Get the selected option object based on optionIndex
         const questionText = selectedQuestion.question; // Get the question text from the selected question object
         const selectedResult = selectedOption.result; // Get the result from the selected option object
-
         const updatedResults = results.filter(r => r.question !== questionText); // Remove previously selected options from results with filter and arrow function
 
         // Update results with the selected question, option, and result
@@ -63,6 +62,8 @@ export default function Quiz() {
         setDisable(false);
         setQuestionIndex(questionIndex + 1);
     };
+
+    console.log(questionIndex)
 
     if (quizCompleted && score >= 5 && score <= 6) {
         return (
@@ -168,21 +169,39 @@ export default function Quiz() {
                 </div>
                 <div className={styles.back_and_next}>
                     {button.map((info, index) => {
-                        if (info.buttons.toLowerCase() === 'quiz') {
+                        if (info.buttons.toLowerCase() === 'quiz' && questionIndex < 4) {
                             return (
                                 <OtherButton
                                     key={index}
                                     back={info.back}
                                     next={info.next}
-                                    type="quiz"
+                                    type={info.questionID === "4" ? "submit" : "quiz"}
                                     onNext={handleNextQuestion}
                                     onBack={handleBackQuestion}
                                     disabled={!disable}
+                                    info={info}
+                                />
+                            );
+                        } else if (info.buttons.toLowerCase() === 'submit' && questionIndex === 4) {
+                            return (
+                                <OtherButton
+                                    key={index}
+                                    back={info.back}
+                                    next={info.next}
+                                    type="submit" // Always set the type prop to "submit" when questionID is 4
+                                    onNext={handleNextQuestion}
+                                    onBack={handleBackQuestion}
+                                    disabled={!disable}
+                                    info={info}
                                 />
                             );
                         }
+                        // Add an optional else block to handle the case when info.buttons is neither "quiz" nor "submit"
+                        // You can add appropriate logic here based on your requirements
                     })}
                 </div>
+
+
             </main>
         </>
     );
