@@ -38,13 +38,14 @@ export default function Quiz() {
         const selectedOption = selectedQuestion.options[optionIndex]; // Get the selected option object based on optionIndex
         const questionText = selectedQuestion.question; // Get the question text from the selected question object
         const selectedResult = selectedOption.result; // Get the result from the selected option object
+        const selectedOutcome = selectedOption.outcome; // Get the outcome from the selected option object
         const updatedResults = results.filter(r => r.question !== questionText); // Remove previously selected options from results with filter and arrow function
 
         // Update results with the selected question, option, and result
-        setResults([...updatedResults, { question: questionText, selectedOption: selectedOption.option, result: selectedResult }]);
+        setResults([...updatedResults, { question: questionText, selectedOption: selectedOption.option, result: selectedResult, outcome: selectedOutcome }]);
         setDisable(true);
-
     };
+
 
     useEffect(() => {
         setQuestion([...quizdata].slice(questionIndex - 1, questionIndex));
@@ -72,22 +73,22 @@ export default function Quiz() {
                 <p>Score: {score}</p>
                 <p>Hi</p>
                 {results.map((result, index) => (
-                    <div key={index}>
+                    <div>
                         <h3>Question: {result.question}</h3>
-                        <p>Selected Option: {result.selectedOption}</p>
+                        <p>Selected Option: {result.selectedOption}{result.outcome}</p>
                         <p>{result.result}</p>
                     </div>
                 ))}
             </div>
         );
-    } else if (quizCompleted && score >= 3 && score <= 4) {
+    } else if (quizCompleted && score >= 2 && score <= 4) {
         return (
             <div>
                 <h1>Results</h1>
                 <p>Score: {score}</p>
                 <p>boo</p>
                 {results.map((result, index) => (
-                    <div key={index}>
+                    <div>
                         <h3>Question: {result.question}</h3>
                         <p>Selected Option: {result.selectedOption}</p>
                         <p>{result.result}</p>
@@ -95,9 +96,20 @@ export default function Quiz() {
                 ))}
             </div>
         );
-    } else if (quizCompleted && score >= 1 && score <= 2) {
+    } else if (quizCompleted && score >= 0 && score <= 1) {
         return (
             <div>
+
+                <div className={styles.poor_background}>
+                    <NavBar />
+                    <div>
+                        <Image src="/results/poor/poor.svg" width={369} height={320} />
+                        <Image src="/results/poor/one star.svg" width={143} height={36} />
+                    </div>
+
+                </div>
+
+
                 <h1>Results</h1>
                 <p>Score: {score}</p>
                 <p>boo</p>
@@ -188,7 +200,7 @@ export default function Quiz() {
                                     key={index}
                                     back={info.back}
                                     next={info.next}
-                                    type="submit" // Always set the type prop to "submit" when questionID is 4
+                                    type="submit"
                                     onNext={handleNextQuestion}
                                     onBack={handleBackQuestion}
                                     disabled={!disable}
@@ -196,8 +208,6 @@ export default function Quiz() {
                                 />
                             );
                         }
-                        // Add an optional else block to handle the case when info.buttons is neither "quiz" nor "submit"
-                        // You can add appropriate logic here based on your requirements
                     })}
                 </div>
 

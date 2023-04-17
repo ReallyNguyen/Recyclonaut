@@ -38,3 +38,7 @@
     gap: 2rem;
     padding: 2rem;
 }
+
+.poor_background {
+    background-color: var(--dogwood-rose);
+}
