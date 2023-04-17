@@ -24,7 +24,7 @@ export default function NavBar({
                         </Link>
                         <MenuBurger />
                     </div>
-                )}
+                ) : null}
 
             </div>
         </>
