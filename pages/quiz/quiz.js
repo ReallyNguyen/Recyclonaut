@@ -118,9 +118,9 @@ export default function Quiz() {
                     </div>
                     <div>
                         <Image src="/results/good/good.svg" width={369} height={320} />
-                        <Image src="/results/good/two star.svg" width={143} height={36} />
                     </div>
                 </div>
+                <Image src="/results/good/two star.svg" width={143} height={36} />
                 <h1>Your Answer</h1>
                 <div className={styles.summary}>
                     <h2>Summary</h2>
@@ -146,9 +146,9 @@ export default function Quiz() {
                     </div>
                     <div>
                         <Image src="/results/poor/poor.svg" width={369} height={320} />
-                        <Image src="/results/poor/one star.svg" width={143} height={36} />
                     </div>
                 </div>
+                <Image src="/results/poor/one star.svg" width={143} height={36} />
                 <h1>Your Answer</h1>
                 <div className={styles.summary}>
                     <h2>Summary</h2>
