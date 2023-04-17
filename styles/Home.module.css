@@ -1,13 +1,21 @@
 .main {
-    background-image: url("/backgrounds/homebg.jpg");
-    background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     color: var(--pure-white);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.bgimg {
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.header {
+    width: 300px;
 }
 
 .wordmark {

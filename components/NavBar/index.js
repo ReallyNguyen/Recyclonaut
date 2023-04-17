@@ -13,7 +13,7 @@ export default function NavBar({
                 {page === 'quiz' ? (
                     <div className={styles.navbar}>
                         <Link href={"/"}>
-                            <Logo />
+                            <Logo page='quiz'/>
                         </Link>
                         <MenuBurger />
                     </div>

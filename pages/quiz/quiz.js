@@ -101,7 +101,7 @@ export default function Quiz() {
             <div>
 
                 <div className={styles.poor_background}>
-                    <NavBar />
+                    <NavBar page='quiz'/>
                     <div>
                         <Image src="/results/poor/poor.svg" width={369} height={320} />
                         <Image src="/results/poor/one star.svg" width={143} height={36} />
@@ -144,74 +144,74 @@ export default function Quiz() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
-                <div className={styles.header}>
-                    <NavBar />
-                </div>
-                <ProgressBar questionIndex={questionIndex} totalQuestions={quizdata.length} />
-                <div>
-                    <div className={styles.quiz_container}>
-                        {question && question.map((info, index) => (
-                            <div key={index}>
-                                <div className={styles.img_container}>
-                                    {Array.isArray(info.img) ? (
-                                        <>
-                                            {info.img.map((img, imgIndex) => (
-                                                <Image key={imgIndex} src={`/${img}`} width={100} height={120} />
-                                            ))}
-                                        </>
-                                    ) : (
-                                        <Image src={`/${info.img}`} width={160} height={110} />
-                                    )}
-                                </div>
-                                <h3>{`${info.questionID}. ${info.question}`}</h3>
-                                {info.options.map((option, optionIndex) => (
-                                    <Buttons
-                                        key={`${questionIndex}-${optionIndex}`}
-                                        option={option}
-                                        buttons={info.questionID === "1" || info.questionID === "2" ? "3" : "2"}
-                                        selected={selectedOptions[info.questionID] === optionIndex}
-                                        updateScore={(points) => updateScore(info.questionID, optionIndex, points)}
-                                        disableButtons={nextClicked}
-                                    />
-                                ))}
-                            </div>
-                        ))}
+                <div className={styles.container}>
+                    <div className={styles.header}>
+                        <NavBar page='quiz'/>
                     </div>
-                    <p>Score: {score}</p>
+                    <ProgressBar questionIndex={questionIndex} totalQuestions={quizdata.length} />
+                    <div>
+                        <div className={styles.quiz_container}>
+                            {question && question.map((info, index) => (
+                                <div key={index}>
+                                    <div className={styles.img_container}>
+                                        {Array.isArray(info.img) ? (
+                                            <>
+                                                {info.img.map((img, imgIndex) => (
+                                                    <Image key={imgIndex} src={`/${img}`} width={60} height={70} />
+                                                ))}
+                                            </>
+                                        ) : (
+                                            <Image src={`/${info.img}`} width={160} height={110} />
+                                        )}
+                                    </div>
+                                    <h4 className={styles.question}>{`${info.questionID}. ${info.question}`}</h4>
+                                    {info.options.map((option, optionIndex) => (
+                                        <Buttons
+                                            key={`${questionIndex}-${optionIndex}`}
+                                            option={option}
+                                            buttons={info.questionID === "1" || info.questionID === "2" ? "3" : "2"}
+                                            selected={selectedOptions[info.questionID] === optionIndex}
+                                            updateScore={(points) => updateScore(info.questionID, optionIndex, points)}
+                                            disableButtons={nextClicked}
+                                        />
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                        <p>Score: {score}</p>
+                    </div>
+                    <div className={styles.back_and_next}>
+                        {button.map((info, index) => {
+                            if (info.buttons.toLowerCase() === 'quiz' && questionIndex < 4) {
+                                return (
+                                    <OtherButton
+                                        key={index}
+                                        back={info.back}
+                                        next={info.next}
+                                        type={info.questionID === "4" ? "submit" : "quiz"}
+                                        onNext={handleNextQuestion}
+                                        onBack={handleBackQuestion}
+                                        disabled={!disable}
+                                        info={info}
+                                    />
+                                );
+                            } else if (info.buttons.toLowerCase() === 'submit' && questionIndex === 4) {
+                                return (
+                                    <OtherButton
+                                        key={index}
+                                        back={info.back}
+                                        next={info.next}
+                                        type="submit"
+                                        onNext={handleNextQuestion}
+                                        onBack={handleBackQuestion}
+                                        disabled={!disable}
+                                        info={info}
+                                    />
+                                );
+                            }
+                        })}
+                    </div>
                 </div>
-                <div className={styles.back_and_next}>
-                    {button.map((info, index) => {
-                        if (info.buttons.toLowerCase() === 'quiz' && questionIndex < 4) {
-                            return (
-                                <OtherButton
-                                    key={index}
-                                    back={info.back}
-                                    next={info.next}
-                                    type={info.questionID === "4" ? "submit" : "quiz"}
-                                    onNext={handleNextQuestion}
-                                    onBack={handleBackQuestion}
-                                    disabled={!disable}
-                                    info={info}
-                                />
-                            );
-                        } else if (info.buttons.toLowerCase() === 'submit' && questionIndex === 4) {
-                            return (
-                                <OtherButton
-                                    key={index}
-                                    back={info.back}
-                                    next={info.next}
-                                    type="submit"
-                                    onNext={handleNextQuestion}
-                                    onBack={handleBackQuestion}
-                                    disabled={!disable}
-                                    info={info}
-                                />
-                            );
-                        }
-                    })}
-                </div>
-
-
             </main>
         </>
     );

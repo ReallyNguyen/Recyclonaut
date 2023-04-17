@@ -15,11 +15,15 @@ export default function Home() {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <main className={styles.main}>
+        <Image className={styles.bgimg} src={'/backgrounds/homebg.jpg'} width={414} height={896}/>
         <div className={styles.header}>
           <h1 className={styles.wordmark}>RECYCLONAUT</h1>
           <h3 className={styles.tagline}>Launching to a sustainable future!</h3>
         </div>
         <div className={styles.btns}>
+          <button className={styles.button} onClick={() => router.push('./quizintro')}>
+            QUIZ
+          </button>
           <button className={styles.button} onClick={() => router.push('./quizintro')}>
             STORY
           </button>
@@ -28,9 +32,6 @@ export default function Home() {
           </button>
           <button className={styles.button} onClick={() => router.push('./about')}>
             ABOUT
-          </button>
-          <button className={styles.button} onClick={() => router.push('./quizintro')}>
-            QUIZ
           </button>
         </div>
       </main>

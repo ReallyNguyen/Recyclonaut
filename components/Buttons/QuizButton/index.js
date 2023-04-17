@@ -38,7 +38,7 @@ export default function Buttons({
                 </button>
             ) : buttons === '2' ? (
                 <button
-                    style={{ height: '6rem' }}
+                    style={{ height: '5rem' }}
                     className={`${isActive ? styles.active : ''}`}
                     onClick={handleClick}
                     disabled={disableButtons}

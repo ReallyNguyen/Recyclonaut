@@ -1,13 +1,17 @@
 .main {
-    background-color: var(--dark-mode);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
+    background-color: var(--dark-mode);
+    width: 414px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 .intro {
@@ -16,7 +20,7 @@
     font-family: 'Montserrat';
     font-size: 12px;
     text-align: center;
-    padding: 5rem;
+    padding: 2rem;
     color: white;
 }
 
