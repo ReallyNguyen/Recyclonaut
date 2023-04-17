@@ -9,14 +9,15 @@
 }
 
 .progress {
-    background-color: #ddd;
+    background-color: transparent;
     height: 20px;
     border-radius: 10px;
+    border: 1px solid var(--pure-white);
 }
 
 .progress_bar {
     width: 25%;
-    background-color: #D90368;
+    background-color: var(--dogwood-rose);
     height: 100%;
     border-radius: 10px;
     transition: width 0.5s ease-in-out;

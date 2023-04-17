@@ -224,7 +224,7 @@ export default function Quiz() {
                                 </div>
                             ))}
                         </div>
-                        <p>Score: {score}</p>
+                        {/*<p>Score: {score}</p>*/}
                     </div>
                     <div className={styles.back_and_next}>
                         {button.map((info, index) => {
