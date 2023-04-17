@@ -68,32 +68,73 @@ export default function Quiz() {
 
     if (quizCompleted && score >= 5 && score <= 6) {
         return (
-            <div>
-                <h1>Results</h1>
-                <p>Score: {score}</p>
-                <p>Hi</p>
-                {results.map((result, index) => (
-                    <div>
-                        <h3>Question: {result.question}</h3>
-                        <p>Selected Option: {result.selectedOption}{result.outcome}</p>
-                        <p>{result.result}</p>
+            <div className={styles.result_container_great}>
+                <div className={styles.great_background}>
+                    <div className={styles.header}>
+                        <NavBar page='quiz' />
                     </div>
-                ))}
+                    <div>
+                        <Image src="/results/great/great.svg" width={369} height={320} />
+                    </div>
+                </div>
+                <Image src="/results/great/three star.svg" width={143} height={36} />
+                <div className={styles.main_results}>
+                    <h1>Your Answer</h1>
+
+                    <div className={styles.summary_great}>
+                        <h2>Summary</h2>
+                        {results.map((result, index) => (
+                            <div key={index} className={styles.test}>
+                                <div className={styles.option_chosen}>
+                                    <p>{result.selectedOption}{result.outcome}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className={styles.quest_great}>
+                        <h1>Your Quest</h1>
+                        <div className={styles.quest}>
+                            <h2>How to improve</h2>
+                            {results.map((result, index) => (
+                                <div key={index} className={styles.test}>
+                                    <div className={styles.quest}>
+                                        <p>{result.result}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                </div>
             </div>
         );
     } else if (quizCompleted && score >= 2 && score <= 4) {
         return (
-            <div>
-                <h1>Results</h1>
-                <p>Score: {score}</p>
-                <p>boo</p>
-                {results.map((result, index) => (
-                    <div>
-                        <h3>Question: {result.question}</h3>
-                        <p>Selected Option: {result.selectedOption}</p>
-                        <p>{result.result}</p>
+            <div className={styles.result_container}>
+                <div className={styles.good_background}>
+                    <div className={styles.header}>
+                        <NavBar page='quiz' />
                     </div>
-                ))}
+                    <div>
+                        <Image src="/results/good/good.svg" width={369} height={320} />
+                        <Image src="/results/good/two star.svg" width={143} height={36} />
+                    </div>
+                </div>
+                <h1>Your Answer</h1>
+                <div className={styles.summary}>
+                    <h2>Summary</h2>
+                    {results.map((result, index) => (
+                        <div key={index}>
+                            <div className={styles.option_chosen}>
+                                <p>{result.selectedOption}{result.outcome}</p>
+                            </div>
+                            <div className={styles.quest}>
+                                <p>{result.result}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     } else if (quizCompleted && score >= 0 && score <= 1) {
@@ -108,20 +149,24 @@ export default function Quiz() {
                         <Image src="/results/poor/one star.svg" width={143} height={36} />
                     </div>
                 </div>
-
-                <h1>Results</h1>
-                <p>Score: {score}</p>
-                <p>boo</p>
-                {results.map((result, index) => (
-                    <div key={index}>
-                        <h3>Question: {result.question}</h3>
-                        <p>Selected Option: {result.selectedOption}</p>
-                        <p>{result.result}</p>
-                    </div>
-                ))}
+                <h1>Your Answer</h1>
+                <div className={styles.summary}>
+                    <h2>Summary</h2>
+                    {results.map((result, index) => (
+                        <div key={index}>
+                            <div className={styles.option_chosen}>
+                                <p>{result.selectedOption}{result.outcome}</p>
+                            </div>
+                            <div className={styles.quest}>
+                                <p>{result.result}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     }
+
 
     const handleBackQuestion = () => {
         if (questionIndex > 1) {
