@@ -51,6 +51,15 @@
     padding: 2rem;
 }
 
+.result_container {
+    display: flex;
+    width: 414px;
+    margin: 0 auto;
+    min-height: 150vh;
+    flex-direction: column;
+    align-items: center;
+}
+
 .poor_background {
     background-color: var(--dogwood-rose);
 }

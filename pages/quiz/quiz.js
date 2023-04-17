@@ -98,10 +98,9 @@ export default function Quiz() {
         );
     } else if (quizCompleted && score >= 0 && score <= 1) {
         return (
-            <div>
-
+            <div className={styles.result_container}>
                 <div className={styles.poor_background}>
-                    <NavBar page='quiz'/>
+                    <NavBar page='quiz' />
                     <div>
                         <Image src="/results/poor/poor.svg" width={369} height={320} />
                         <Image src="/results/poor/one star.svg" width={143} height={36} />
@@ -146,7 +145,7 @@ export default function Quiz() {
             <main className={styles.main}>
                 <div className={styles.container}>
                     <div className={styles.header}>
-                        <NavBar page='quiz'/>
+                        <NavBar page='quiz' />
                     </div>
                     <ProgressBar questionIndex={questionIndex} totalQuestions={quizdata.length} />
                     <div>
