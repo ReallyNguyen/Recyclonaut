@@ -100,14 +100,14 @@ export default function Quiz() {
         return (
             <div className={styles.result_container}>
                 <div className={styles.poor_background}>
-                    <NavBar page='quiz' />
+                    <div className={styles.header}>
+                        <NavBar page='quiz' />
+                    </div>
                     <div>
                         <Image src="/results/poor/poor.svg" width={369} height={320} />
                         <Image src="/results/poor/one star.svg" width={143} height={36} />
                     </div>
-
                 </div>
-
 
                 <h1>Results</h1>
                 <p>Score: {score}</p>
@@ -124,13 +124,15 @@ export default function Quiz() {
     }
 
     const handleBackQuestion = () => {
-        setQuestionIndex(questionIndex - 1);
-        const buttons = document.querySelectorAll(`.${styles.buttons} button`);
-        buttons.forEach((button) => {
-            button.classList.remove(styles.active);
-        });
-        if (questionIndex === 1) {
-            setNextClicked(true);
+        if (questionIndex > 1) {
+            setQuestionIndex(questionIndex - 1);
+            const buttons = document.querySelectorAll(`.${styles.buttons} button`);
+            buttons.forEach((button) => {
+                button.classList.remove(styles.active);
+            });
+            if (questionIndex === 2) {
+                setNextClicked(true);
+            }
         }
     };
 
