@@ -59,7 +59,7 @@
             "quiz/bag.png",
             "quiz/cup.png"
         ],
-        "question": "Do you use reusable products?",
+        "question": "Do you use reusable products such as straws, cups, bags?",
         "options": [
             {
                 "option": "Yes, I use reusable products",
@@ -78,7 +78,7 @@
     {
         "questionID": 4,
         "img": "quiz/bottles.png",
-        "question": "What products do you recycle?",
+        "question": "Do you recycle your bottles, cans, glass, paper, etc.?",
         "options": [
             {
                 "option": "Yes, I recycle",
