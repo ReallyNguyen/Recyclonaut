@@ -1,4 +1,50 @@
-.image {
-    width: 100%;
-    max-width: 150%;
+.logoContainer {
+    cursor: pointer;
+}
+
+.container {
+    background: rgba(20, 20, 20, 0.8);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    height: 150px;
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--pure-white);
+    color: var(--russian-violet);
+    border-radius: 15px;
+    font-family: var(--buttons);
+}
+
+.heading {
+    width: 200px;
+    text-align: center;
+}
+
+.btns {
+    display: flex;
+    gap: 7rem;
+}
+
+.btn {
+    color: var(--russian-violet);
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: var(--dogwood-rose);
 }

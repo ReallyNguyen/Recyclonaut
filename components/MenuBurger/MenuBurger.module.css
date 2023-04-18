@@ -51,3 +51,7 @@
     text-decoration: none;
     font-family: var(--body-text);
 }
+
+.link:hover {
+    color: var(--dogwood-rose);
+}

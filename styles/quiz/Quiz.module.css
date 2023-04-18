@@ -19,7 +19,6 @@
     background-color: var(--dark-mode);
     color: var(--pure-white);
     font-family: var(--body-text);
-    padding-bottom: 1rem;
 }
 
 .question {

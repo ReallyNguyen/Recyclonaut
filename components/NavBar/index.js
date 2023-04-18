@@ -12,16 +12,12 @@ export default function NavBar({
             <div>
                 {page === 'quiz' ? (
                     <div className={styles.navbar}>
-                        <Link href={"/"}>
-                            <Logo page='quiz'/>
-                        </Link>
+                        <Logo page='quiz'/>
                         <MenuBurger />
                     </div>
                 ) : page === 'result' ? (
                     <div className={styles.navbar}>
-                        <Link href={"/"}>
-                            <Logo />
-                        </Link>
+                        <Logo />
                         <MenuBurger />
                     </div>
                 ) : null}
