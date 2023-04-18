@@ -70,19 +70,19 @@ export default function Quiz() {
 
     if (quizCompleted && score >= 5 && score <= 6) {
         return (
-            <div className={styles.result_container_good}>
-                <div className={styles.good_background}>
+            <div className={styles.result_container_great}>
+                <div className={styles.great_background}>
                     <div className={styles.header}>
                         <NavBar page='quiz' />
                     </div>
                     <div>
-                        <Image src="/results/good/good.svg" width={369} height={320} />
+                        <Image src="/results/great/great.svg" width={369} height={320} />
                     </div>
                 </div>
                 <div className={styles.group}>
-                    <Image src="/results/good/two stars.svg" width={143} height={36} />
+                    <Image src="/results/great/three star.svg" width={143} height={36} />
                     <h1>cosmicknight</h1>
-                    <h3>Good Progress</h3>
+                    <h3>Great Progress</h3>
                     <p className={styles.desc}>
                         Congratulations! Based on your quiz results,
                         you have been identified and placed as a LunarWarrior.
@@ -140,17 +140,18 @@ export default function Quiz() {
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/good/two stars.svg" width={143} height={36} />
-                    <h1>cosmicknight</h1>
+                    <h1>Cosmic Knight</h1>
                     <h3>Good Progress</h3>
                     <p className={styles.desc}>
-                        Congratulations! Based on your quiz results,
-                        you have been identified and placed as a LunarWarrior.
-                        With your current habits and inputted answers,
-                        we have curated a list of quests for you to incorporate
-                        into your daily routine to aid in the betterment of our
-                        environment. Are you ready to accept the challenge and
-                        make a positive impact on our planet? Let's embark on
-                        this quest together and make a difference!</p>
+                        Congratulations on your quiz results! You have been
+                        identified and placed as a LunarWarrior, and we have
+                        designed a set of daily quests for you to adopt and
+                        contribute towards the betterment of our environment.
+                        With your current habits and answers, we believe you
+                        have the potential to make a positive impact on our planet.
+                        Are you prepared to take on this challenge and join us on
+                        this quest towards a greener world? Let's embark on this
+                        journey together and create a lasting difference!</p>
                 </div>
                 <div className={styles.main_results}>
                     <h1 className={styles.answer}>Your Answer</h1>
@@ -194,17 +195,16 @@ export default function Quiz() {
                 </div>
                 <div className={styles.poor_group}>
                     <Image src="/results/poor/one star.svg" width={143} height={36} />
-                    <h1>lunarwarrior</h1>
-                    <h3>Great Progress</h3>
+                    <h1>Stellar Guard</h1>
+                    <h3>Poor Progress</h3>
                     <p className={styles.desc}>
-                        Congratulations! Based on your quiz results,
-                        you have been identified and placed as a LunarWarrior.
-                        With your current habits and inputted answers,
-                        we have curated a list of quests for you to incorporate
-                        into your daily routine to aid in the betterment of our
-                        environment. Are you ready to accept the challenge and
-                        make a positive impact on our planet? Let's embark on
-                        this quest together and make a difference!</p>
+                        We regret to inform you that your quiz results indicate a
+                        low score, and as a result, you have been placed as a LunarWarrior.
+                        Based on your current habits and inputted answers, we have curated a
+                        list of quests for you to incorporate into your daily routine to improve
+                        our environment. Are you ready to accept the challenge and make a
+                        positive impact on our planet? Let's embark on this quest together
+                        and strive to make a difference!</p>
                 </div>
                 <div className={styles.main_results_poor}>
                     <h1 className={styles.answer}>Your Answer</h1>
