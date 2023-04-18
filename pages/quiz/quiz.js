@@ -11,6 +11,8 @@ import OtherButton from '@/components/Buttons/OtherButton'
 import NavBar from '@/components/NavBar'
 
 export default function Quiz() {
+    const router = useRouter();
+
     const [questionIndex, setQuestionIndex] = useState(1);
     const [question, setQuestion] = useState([...quizdata]);
     const [button, setButton] = useState([...buttondata]);
@@ -68,33 +70,49 @@ export default function Quiz() {
 
     if (quizCompleted && score >= 5 && score <= 6) {
         return (
-            <div className={styles.result_container_great}>
-                <div className={styles.great_background}>
+            <div className={styles.result_container_good}>
+                <div className={styles.good_background}>
                     <div className={styles.header}>
                         <NavBar page='quiz' />
                     </div>
                     <div>
-                        <Image src="/results/great/great.svg" width={369} height={320} />
+                        <Image src="/results/good/good.svg" width={369} height={320} />
                     </div>
                 </div>
-                <Image src="/results/great/three star.svg" width={143} height={36} />
+                <div className={styles.group}>
+                    <Image src="/results/good/two stars.svg" width={143} height={36} />
+                    <h1>cosmicknight</h1>
+                    <h3>Good Progress</h3>
+                    <p className={styles.desc}>
+                        Congratulations! Based on your quiz results,
+                        you have been identified and placed as a LunarWarrior.
+                        With your current habits and inputted answers,
+                        we have curated a list of quests for you to incorporate
+                        into your daily routine to aid in the betterment of our
+                        environment. Are you ready to accept the challenge and
+                        make a positive impact on our planet? Let's embark on
+                        this quest together and make a difference!
+                    </p>
+                </div>
                 <div className={styles.main_results}>
-                    <h1>Your Answer</h1>
-
+                    <h1 className={styles.answer}>Your Answer</h1>
                     <div className={styles.summary_great}>
                         <h2>Summary</h2>
                         {results.map((result, index) => (
                             <div key={index} className={styles.test}>
                                 <div className={styles.option_chosen}>
-                                    <p>{result.selectedOption}{result.outcome}</p>
+                                    <p>
+                                        {result.selectedOption}
+                                        {result.outcome}
+                                    </p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
                     <div className={styles.quest_great}>
-                        <h1>Your Quest</h1>
-                        <div className={styles.quest}>
+                        <h1 className={styles.quest}>Your Quest</h1>
+                        <div className={styles.improve_great}>
                             <h2>How to improve</h2>
                             {results.map((result, index) => (
                                 <div key={index} className={styles.test}>
@@ -105,13 +123,13 @@ export default function Quiz() {
                             ))}
                         </div>
                     </div>
-
                 </div>
             </div>
         );
+
     } else if (quizCompleted && score >= 2 && score <= 4) {
         return (
-            <div className={styles.result_container}>
+            <div className={styles.result_container_good}>
                 <div className={styles.good_background}>
                     <div className={styles.header}>
                         <NavBar page='quiz' />
@@ -120,26 +138,52 @@ export default function Quiz() {
                         <Image src="/results/good/good.svg" width={369} height={320} />
                     </div>
                 </div>
-                <Image src="/results/good/two star.svg" width={143} height={36} />
-                <h1>Your Answer</h1>
-                <div className={styles.summary}>
-                    <h2>Summary</h2>
-                    {results.map((result, index) => (
-                        <div key={index}>
-                            <div className={styles.option_chosen}>
-                                <p>{result.selectedOption}{result.outcome}</p>
+                <div className={styles.group}>
+                    <Image src="/results/good/two stars.svg" width={143} height={36} />
+                    <h1>cosmicknight</h1>
+                    <h3>Good Progress</h3>
+                    <p className={styles.desc}>
+                        Congratulations! Based on your quiz results,
+                        you have been identified and placed as a LunarWarrior.
+                        With your current habits and inputted answers,
+                        we have curated a list of quests for you to incorporate
+                        into your daily routine to aid in the betterment of our
+                        environment. Are you ready to accept the challenge and
+                        make a positive impact on our planet? Let's embark on
+                        this quest together and make a difference!</p>
+                </div>
+                <div className={styles.main_results}>
+                    <h1 className={styles.answer}>Your Answer</h1>
+                    <div className={styles.summary_good}>
+                        <h2>Summary</h2>
+                        {results.map((result, index) => (
+                            <div key={index} className={styles.test}>
+                                <div className={styles.option_chosen}>
+                                    <p>{result.selectedOption}{result.outcome}</p>
+                                </div>
                             </div>
-                            <div className={styles.quest}>
-                                <p>{result.result}</p>
-                            </div>
+                        ))}
+                    </div>
+
+                    <div className={styles.quest_good}>
+                        <h1 className={styles.quest}>Your Quest</h1>
+                        <div className={styles.improve_good}>
+                            <h2>How to improve</h2>
+                            {results.map((result, index) => (
+                                <div key={index} className={styles.test}>
+                                    <div className={styles.quest}>
+                                        <p>{result.result}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
         );
     } else if (quizCompleted && score >= 0 && score <= 1) {
         return (
-            <div className={styles.result_container}>
+            <div className={styles.result_container_poor}>
                 <div className={styles.poor_background}>
                     <div className={styles.header}>
                         <NavBar page='quiz' />
@@ -148,25 +192,54 @@ export default function Quiz() {
                         <Image src="/results/poor/poor.svg" width={369} height={320} />
                     </div>
                 </div>
-                <Image src="/results/poor/one star.svg" width={143} height={36} />
-                <h1>Your Answer</h1>
-                <div className={styles.summary}>
-                    <h2>Summary</h2>
-                    {results.map((result, index) => (
-                        <div key={index}>
-                            <div className={styles.option_chosen}>
-                                <p>{result.selectedOption}{result.outcome}</p>
+                <div className={styles.poor_group}>
+                    <Image src="/results/poor/one star.svg" width={143} height={36} />
+                    <h1>lunarwarrior</h1>
+                    <h3>Great Progress</h3>
+                    <p className={styles.desc}>
+                        Congratulations! Based on your quiz results,
+                        you have been identified and placed as a LunarWarrior.
+                        With your current habits and inputted answers,
+                        we have curated a list of quests for you to incorporate
+                        into your daily routine to aid in the betterment of our
+                        environment. Are you ready to accept the challenge and
+                        make a positive impact on our planet? Let's embark on
+                        this quest together and make a difference!</p>
+                </div>
+                <div className={styles.main_results_poor}>
+                    <h1 className={styles.answer}>Your Answer</h1>
+                    <div className={styles.summary_poor}>
+                        <h2>Summary</h2>
+                        {results.map((result, index) => (
+                            <div key={index}>
+                                <div className={styles.option_chosen_poor}>
+                                    <p>{result.selectedOption}{result.outcome}</p>
+                                </div>
                             </div>
-                            <div className={styles.quest}>
-                                <p>{result.result}</p>
-                            </div>
+                        ))}
+                    </div>
+
+                    <div className={styles.quest_poor}>
+                        <h1 className={styles.quest}>Your Quest</h1>
+                        <div className={styles.improve_poor}>
+                            <h2>How to improve</h2>
+                            {results.map((result, index) => (
+                                <div key={index}>
+                                    <div className={styles.quest}>
+                                        <p>{result.result}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
         );
     }
 
+    const handleButtonClick = () => {
+        router.push("./quizintro");
+    };
 
     const handleBackQuestion = () => {
         if (questionIndex > 1) {
@@ -178,6 +251,9 @@ export default function Quiz() {
             if (questionIndex === 2) {
                 setNextClicked(true);
             }
+        }
+        if (questionIndex === 1) {
+            handleButtonClick();
         }
     };
 
@@ -224,7 +300,6 @@ export default function Quiz() {
                                 </div>
                             ))}
                         </div>
-                        {/*<p>Score: {score}</p>*/}
                     </div>
                     <div className={styles.back_and_next}>
                         {button.map((info, index) => {
@@ -242,6 +317,19 @@ export default function Quiz() {
                                     />
                                 );
                             } else if (info.buttons.toLowerCase() === 'submit' && questionIndex === 4) {
+                                return (
+                                    <OtherButton
+                                        key={index}
+                                        back={info.back}
+                                        next={info.next}
+                                        type="submit"
+                                        onNext={handleNextQuestion}
+                                        onBack={handleBackQuestion}
+                                        disabled={!disable}
+                                        info={info}
+                                    />
+                                );
+                            } else if (info.buttons.toLowerCase() === 'quiz' && questionIndex === 1) {
                                 return (
                                     <OtherButton
                                         key={index}
