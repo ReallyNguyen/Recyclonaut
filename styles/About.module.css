@@ -57,7 +57,7 @@
 }
 
 .card__description {
-    font-size: 14px;
+    font-family: var(--body-text);
     width: 15rem;
     transition: opacity 0.25s, transform 0.35s;
     opacity: 0;
@@ -82,7 +82,7 @@
 }
 
 .card__subtitle {
-    font-family: var(--body-copy);
+    font-family: var(--body-text);
 }
 
 .card__description {
