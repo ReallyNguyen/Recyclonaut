@@ -8,7 +8,7 @@ export default function About() {
             <div className={styles.container}>
                 <NavBar page='quiz' />
                 <div className={styles.card}>
-                    <img src="/about/Jordan.svg" alt="Jordan" className={styles.card__image} />
+                    <Image src="/about/Jordan.svg" alt="Jordan" className={styles.card__image} width={100} height={100} />
                     <div className={styles.card__body}>
                         <div className={styles.card__name}>
                             <h2 className={styles.card__title}>Jordan</h2>
@@ -22,7 +22,7 @@ export default function About() {
                 </div>
 
                 <div className={styles.card}>
-                    <img src="/about/Mari.svg" alt="Mari" className={styles.card__image} />
+                    <Image src="/about/Mari.svg" alt="Mari" className={styles.card__image} width={100} height={100} />
                     <div className={styles.card__body}>
                         <div className={styles.card__name}>
                             <h2 className={styles.card__title}>Mariela</h2>
