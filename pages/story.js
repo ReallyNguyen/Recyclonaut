@@ -35,7 +35,7 @@ export default function Story() {
                         As he journeyed through the vast expanse of space, he came across a civilization 
                         that had achieved a level of technological advancement far beyond that of humanity.
                     </p>
-                    <Image src={'/story/discovery.png'} width={340} height={340}/>
+                    <Image src={'/story/discovery.png'} width={340} height={280}/>
                     <p className={styles.text}>
                         The astronaut met with the planet’s inhabitants and learned from their sustainable 
                         living practices, in order to preserve the earth.

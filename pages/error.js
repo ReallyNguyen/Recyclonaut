@@ -12,7 +12,7 @@ export default function Error() {
                 <button className={styles.button} onClick={() => router.push('./story')}>
                     GO BACK
                 </button>
-                <Image className={styles.astronaut} src={'/story/b&w.png'} width={700} height={700}/>
+                <Image className={styles.astronaut} src={'/story/b&w.png'} width={500} height={600}/>
             </div>
         </>
     )
