@@ -14,3 +14,4 @@ HTML, CSS, JS, Nextjs
 
 - npm create-next-app
 - npm run dev
+- npm i react-chartjs-2
