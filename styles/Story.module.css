@@ -12,12 +12,13 @@
 }
 
 .header {
-    width: 300px;
+    width: 350px;
     text-align: center;
 }
 
 .wordmark {
     font-family: var(--headings);
+    font-size: 38px;
 }
 
 .tagline {
@@ -38,9 +39,10 @@
     font-size: 14px;
 }
 
-.save {
+.heading {
     font-family: var(--buttons);
     color: var(--golden-yellow);
+    text-align: center;
 }
 
 .join {
@@ -58,7 +60,7 @@
     margin-top: 1rem;
 }
 
-.heading {
+.question {
     width: 200px;
     text-align: center;
 }

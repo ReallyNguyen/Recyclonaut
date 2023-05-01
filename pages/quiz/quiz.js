@@ -115,17 +115,12 @@ export default function Quiz() {
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/great/three star.svg" width={143} height={36} />
-                    <h1>cosmicknight</h1>
+                    <h1>stellarknight</h1>
                     <h3>Great Progress</h3>
                     <p className={styles.desc}>
-                        Congratulations! Based on your quiz results,
-                        you have been identified and placed as a LunarWarrior.
-                        With your current habits and inputted answers,
-                        we have curated a list of quests for you to incorporate
-                        into your daily routine to aid in the betterment of our
-                        environment. Are you ready to accept the challenge and
-                        make a positive impact on our planet? Let's embark on
-                        this quest together and make a difference!
+                        Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight. 
+                        It looks like you are successfully making a positive change on the planet! Keep it up and inspire 
+                        others to also make an impact on the planet. 
                     </p>
                 </div>
                 <div className={styles.main_results}>
@@ -180,11 +175,11 @@ export default function Quiz() {
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/good/two stars.svg" width={143} height={36} />
-                    <h1>Cosmic Knight</h1>
+                    <h1>cosmicwarrior</h1>
                     <h3>Good Progress</h3>
                     <p className={styles.desc}>
                         Congratulations on your quiz results! You have been
-                        identified and placed as a LunarWarrior, and we have
+                        identified and placed as a CosmicWarrior. We have
                         designed a set of daily quests for you to adopt and
                         contribute towards the betterment of our environment.
                         With your current habits and answers, we believe you
@@ -241,11 +236,11 @@ export default function Quiz() {
                 </div>
                 <div className={styles.poor_group}>
                     <Image src="/results/poor/one star.svg" width={143} height={36} />
-                    <h1>Stellar Guard</h1>
+                    <h1>lunarsoldier</h1>
                     <h3>Poor Progress</h3>
                     <p className={styles.desc}>
                         We regret to inform you that your quiz results indicate a
-                        low score, and as a result, you have been placed as a LunarWarrior.
+                        low score, and as a result, you have been placed as a LunarSoldier.
                         Based on your current habits and inputted answers, we have curated a
                         list of quests for you to incorporate into your daily routine to improve
                         our environment. Are you ready to accept the challenge and make a

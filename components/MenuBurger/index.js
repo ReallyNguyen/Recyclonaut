@@ -29,10 +29,10 @@ export default function MenuBurger() {
                 menu === true ?
                     <div ref={menuRef} className={styles.openMenu}>
                         <Link className={styles.link} href="/">Home</Link>
-                        <Link className={styles.link} href="/quizintro">Quiz</Link>
                         <Link className={styles.link} href="/story">Story</Link>
+                        <Link className={styles.link} href="/quizintro">Quiz</Link>
+                        <Link className={styles.link} href="/resources">Resources</Link>
                         <Link className={styles.link} href="/about">About</Link>
-                        <Link className={styles.link} href="/tutorial">Tutorial</Link>
                     </div>:
                 <></>
             }

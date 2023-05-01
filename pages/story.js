@@ -18,7 +18,7 @@ export default function Story() {
                 <NavBar page='quiz' />
                 <div className={styles.header}>
                     <h1 className={styles.wordmark}>RECYCLONAUT</h1>
-                    <h3 className={styles.tagline}>Launching to a sustainable future!</h3>
+                    <h3 className={styles.tagline}>Launching to a <br /> sustainable future!</h3>
                 </div>
                 <div className={styles.story}>
                     <p className={styles.text}>
@@ -26,31 +26,33 @@ export default function Story() {
                         treating it as if it were an infinite resource that could be abused without consequence.
                     </p>
                     <p className={styles.text}>
+                        Forests were disappearing, ice caps were melting, and people were running out of food.
                         The effects of climate change had become impossible to ignore, with the amount of waste humans had generated.
                     </p>
+                    <h4 className={styles.heading}>Hover over the earth<br /> for more info</h4>
                     <PieChart />
                     <p className={styles.text}>
-                        As the majority of humans could not adjust to life in outer space, 
-                        our species had reached the point of extinction, except for one lone soldier.   
+                        NASA and SpaceX worked together to send a team beyond the outer reaches of this solar system to find help. 
+                        The leader of this space team was called Recylonaut.  
                     </p>
                     <Image src={'/story/lone.svg'} width={340} height={300}/>
                     <p className={styles.text}>
-                        Recyclo, the space-time travelling astronaut, went on a mission to explore a 
-                        distant planet in a far-off galaxy.   
+                        Recylo’s mission was to find civilized planets that had learned to manage their waste and resources well, 
+                        without contributing to climate change and the destruction of their planet.   
                     </p>
                     <p className={styles.text}>
-                        As he journeyed through the vast expanse of space, he came across a civilization 
+                        As he journeyed through the vast expanse of space, he came across civilization X on planet Z
                         that had achieved a level of technological advancement far beyond that of humanity.
                     </p>
                     <Image src={'/story/discovery.png'} width={340} height={280}/>
                     <p className={styles.text}>
-                        The astronaut met with the planet’s inhabitants and learned from their sustainable 
-                        living practices, in order to preserve the earth.
+                        Recyclonaut met with the planet’s inhabitants and learned from their sustainable 
+                        living practices, how to care for the environment, and how to protect it.
                     </p>
                     <Image src={'/story/closeup.svg'} width={300} height={300}/>
-                    <h3 className={styles.save}>"I can save our planet."</h3>
+                    <h3 className={styles.heading}>"I can save our planet."</h3>
                     <div className={styles.join}>
-                        <h4 className={styles.heading}>Would you like to join the journey?</h4>
+                        <h4 className={styles.question}>Would you like to join the journey?</h4>
                         <div className={styles.btns}>
                             <Link href={'/quizintro'}><div className={styles.btn}>YES</div></Link>
                             <Link href={'/error'}><div className={styles.btn}>NO</div></Link>

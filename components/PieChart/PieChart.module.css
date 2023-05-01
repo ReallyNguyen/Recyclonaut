@@ -1,6 +1,6 @@
 .chartContainer {
     position: absolute;
-    top: 62%;
+    top: 75%;
     left: 36%;
     z-index: 1;
     width: 400px;
@@ -17,7 +17,7 @@
 }
 
 .earth {
-    padding: 2rem;
+    padding: 1rem;
     animation-name: float;
     animation-duration: 3s;
     animation-timing-function: ease-in-out;

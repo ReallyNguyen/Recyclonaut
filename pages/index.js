@@ -27,8 +27,8 @@ export default function Home() {
           <button className={styles.button} onClick={() => router.push('./quizintro')}>
             QUIZ
           </button>
-          <button className={styles.button} onClick={() => router.push('./tutorial')}>
-            TUTORIAL
+          <button className={styles.button} onClick={() => router.push('./resources')}>
+            RESOURCES
           </button>
           <button className={styles.button} onClick={() => router.push('./about')}>
             ABOUT
