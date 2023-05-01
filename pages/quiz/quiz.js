@@ -66,9 +66,13 @@ export default function Quiz() {
         setQuestionIndex(questionIndex + 1);
     };
 
-    const handleButtonClick = () => {
-        router.push("./quizintro");
+    const handleIntro = () => {
+        router.push("../quizintro");
     };
+
+    const handleHome = () => {
+        router.push("/");
+    }
 
     const handleBackQuestion = () => {
         if (questionIndex > 1) {
@@ -94,7 +98,7 @@ export default function Quiz() {
             }
         }
         if (questionIndex === 1) {
-            handleButtonClick();
+            handleIntro();
         }
     };
 
@@ -153,6 +157,12 @@ export default function Quiz() {
                             ))}
                         </div>
                     </div>
+
+                    <div className={styles.result_buttons_great}>
+                        <button onClick={handleIntro}>Redo the journey?</button>
+                        <button onClick={handleHome}>Go back to home</button>
+                    </div>
+
                 </div>
             </div>
         );
@@ -209,6 +219,12 @@ export default function Quiz() {
                             ))}
                         </div>
                     </div>
+
+                    <div className={styles.result_buttons_good}>
+                        <button onClick={handleIntro}>Redo the journey?</button>
+                        <button onClick={handleHome}>Go back to home</button>
+                    </div>
+
                 </div>
             </div>
         );
@@ -262,6 +278,12 @@ export default function Quiz() {
                             ))}
                         </div>
                     </div>
+
+                    <div className={styles.result_buttons_poor}>
+                        <button onClick={handleIntro}>Redo the journey?</button>
+                        <button onClick={handleHome}>Go back to home</button>
+                    </div>
+
                 </div>
             </div>
         );

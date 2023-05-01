@@ -154,6 +154,11 @@
     align-items: center;
 }
 
+.result_container_poor * p {
+    font-family: var(--body-text);
+    padding: 1rem 0;
+}
+
 .result_container_poor>h1 {
     font-family: var(--headings);
     color: var(--dogwood-rose);
@@ -194,7 +199,7 @@
 .summary_poor {
     display: flex;
     width: 350px;
-    height: 230px;
+    height: 265px;
     margin: 0 auto;
     background-color: var(--dogwood-rose);
     color: var(--pure-white);
@@ -221,6 +226,25 @@
     border-radius: 10px;
 }
 
+.result_buttons_poor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.result_buttons_poor>button {
+    width: 273px;
+    height: 57px;
+    border-radius: 15px;
+    background-color: var(--dogwood-rose);
+    color: var(--pure-white);
+    font-family: var(--buttons);
+    border: none;
+}
+
+.result_buttons_poor>button:hover {}
+
 /* Good */
 .result_container_good {
     display: flex;
@@ -233,6 +257,7 @@
 
 .result_container_good * p {
     font-family: var(--body-text);
+    padding: 1rem 0;
 }
 
 .result_container_good * h1 {
@@ -289,7 +314,7 @@
 .summary_good {
     display: flex;
     width: 350px;
-    height: 230px;
+    height: 265px;
     margin: 0 auto;
     background-color: var(--hunter-green);
     color: var(--pure-white);
@@ -316,6 +341,22 @@
     border-radius: 10px;
 }
 
+.result_buttons_good {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.result_buttons_good>button {
+    width: 273px;
+    height: 57px;
+    border-radius: 15px;
+    background-color: var(--hunter-green);
+    color: var(--pure-white);
+    font-family: var(--buttons);
+}
+
 /* Great */
 .result_container_great {
     display: flex;
@@ -328,6 +369,7 @@
 
 .result_container_great * p {
     font-family: var(--body-text);
+    padding: 1rem 0;
 }
 
 .result_container_great * h1 {
@@ -384,7 +426,7 @@
 .summary_great {
     display: flex;
     width: 350px;
-    height: 230px;
+    height: 265px;
     margin: 0 auto;
     background-color: var(--russian-violet);
     color: var(--pure-white);
@@ -409,4 +451,20 @@
     align-items: center;
     justify-content: space-evenly;
     border-radius: 10px;
+}
+
+.result_buttons_great {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.result_buttons_great>button {
+    width: 273px;
+    height: 57px;
+    border-radius: 15px;
+    background-color: var(--russian-violet);
+    color: var(--pure-white);
+    font-family: var(--buttons);
 }
