@@ -102,7 +102,7 @@ export default function Quiz() {
         }
     };
 
-    if (quizCompleted && score >= 5 && score <= 6) {
+    if (quizCompleted && score === 6) {
         return (
             <div className={styles.result_container_great}>
                 <div className={styles.great_background}>
@@ -118,9 +118,9 @@ export default function Quiz() {
                     <h1>stellarknight</h1>
                     <h3>Great Progress</h3>
                     <p className={styles.desc}>
-                        Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight. 
-                        It looks like you are successfully making a positive change on the planet! Keep it up and inspire 
-                        others to also make an impact on the planet. 
+                        Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight.
+                        It looks like you are successfully making a positive change on the planet! Keep it up and inspire
+                        others to also make an impact on the planet.
                     </p>
                 </div>
                 <div className={styles.main_results}>

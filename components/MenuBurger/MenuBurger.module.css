@@ -15,6 +15,14 @@
     transition: all 0.2s ease-in-out;
 }
 
+.burger_line_purple {
+    border-radius: 20px;
+    width: 100%;
+    height: 20px;
+    background-color: var(--russian-violet);
+    transition: all 0.2s ease-in-out;
+}
+
 .menu-burger,
 .open,
 .burger-line:nth-child(1) {

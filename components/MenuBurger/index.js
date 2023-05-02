@@ -8,16 +8,16 @@ export default function MenuBurger() {
 
     useEffect(() => {
         const closeMenu = (event) => {
-        if (menuRef.current && !menuRef.current.contains(event.target)) {
-            setMenu(false);
-        }
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setMenu(false);
+            }
         };
         document.addEventListener('mousedown', closeMenu);
         return () => {
             document.removeEventListener('mousedown', closeMenu);
         };
     }, [menuRef]);
-    
+
     return (
         <>
             <div className={styles.menu_burger} onClick={() => setMenu(true)}>
@@ -33,8 +33,8 @@ export default function MenuBurger() {
                         <Link className={styles.link} href="/quizintro">Quiz</Link>
                         <Link className={styles.link} href="/resources">Resources</Link>
                         <Link className={styles.link} href="/about">About</Link>
-                    </div>:
-                <></>
+                    </div> :
+                    <></>
             }
         </>
     )

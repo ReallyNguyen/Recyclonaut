@@ -1,0 +1,56 @@
+.main {
+    width: 414px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: var(--dark-mode);
+    color: var(--pure-white);
+    font-family: var(--body-text);
+}
+
+.header {
+    text-align: center;
+    font-family: var(--headings);
+}
+
+.fashion,
+.shopping,
+.product,
+.recycling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    transform: scale(0.7);
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.fashion * {
+    padding: 1rem;
+}
+
+.shopping * {
+    padding: 1rem;
+}
+
+.product * {
+    padding: 1rem;
+}
+
+.recycling * {
+    padding: 1rem;
+}
+
+.fashion button,
+.shopping button,
+.product button,
+.recycling button {
+    border-radius: 10px;
+    font-family: var(--buttons);
+}
