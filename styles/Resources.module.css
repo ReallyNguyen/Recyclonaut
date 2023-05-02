@@ -53,4 +53,17 @@
 .recycling button {
     border-radius: 10px;
     font-family: var(--buttons);
+    background-color: transparent;
+    color: var(--pure-white);
+    border: 2px solid white;
+}
+
+.fashion button:hover,
+.shopping button:hover,
+.product button:hover,
+.recycling button:hover {
+    border-radius: 10px;
+    font-family: var(--buttons);
+    background-color: var(--pure-white);
+    color: var(--dark-mode);
 }
