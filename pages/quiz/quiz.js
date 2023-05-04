@@ -19,6 +19,12 @@ export default function Quiz() {
     const [button, setButton] = useState([...buttondata]);
     const [disable, setDisable] = useState(false);
     const { img } = quizdata[questionIndex];
+    const [poor, setPoor] = useState(false)
+    const [good, setGood] = useState(false)
+    const [great, setGreat] = useState(false)
+    const [submitted, setSubmitted] = useState(false);
+    const [summary, setSummary] = useState([]);
+
 
     const handleIntro = () => {
         router.push("../quizintro");
@@ -62,194 +68,76 @@ export default function Quiz() {
     }
 
     const handleSubmit = () => {
-        const totalPoints = points.reduce((sum, point) => sum + point, 0)
-        const result = quizdata.map((question, index) => {
-            const optionIndex = question.options.findIndex(option => option.point === points[index])
-
-            if (totalPoints === 6) {
-                return (
-                    <div className={styles.result_container_great}>
-                        <div className={styles.great_background}>
-                            <div className={styles.header}>
-                                <NavBar page='quiz' />
-                            </div>
-                            <div>
-                                <Image src="/results/great/great.svg" width={369} height={320} />
-                            </div>
-                        </div>
-                        <div className={styles.group}>
-                            <Image src="/results/great/three star.svg" width={143} height={36} />
-                            <h1>stellarknight</h1>
-                            <h3>Great Progress</h3>
-                            <p className={styles.desc}>
-                                Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight.
-                                It looks like you are successfully making a positive change on the planet! Keep it up and inspire
-                                others to also make an impact on the planet.
-                            </p>
-                        </div>
-                        <div className={styles.main_results}>
-                            <h1 className={styles.answer}>Your Answer</h1>
-                            <div className={styles.summary_great}>
-                                <h2>Summary</h2>
-                                {results.map((result, index) => (
-                                    <div key={index} className={styles.test}>
-                                        <div className={styles.option_chosen}>
-                                            <p>
-                                                {result.selectedOption}
-                                                {result.outcome}
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-        
-                            <div className={styles.quest_great}>
-                                <h1 className={styles.quest}>Your Quest</h1>
-                                <div className={styles.improve_great}>
-                                    <h2>How to improve</h2>
-                                    {results.map((result, index) => (
-                                        <div key={index} className={styles.test}>
-                                            <div className={styles.quest}>
-                                                <p>{result.result}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-        
-                            <div className={styles.result_buttons_great}>
-                                <button onClick={handleIntro}>Redo the journey?</button>
-                                <button onClick={handleHome}>Go back to home</button>
-                            </div>
-        
-                        </div>
+        const totalPoints = points.reduce((sum, point) => sum + point, 0);
+        const newSummary = quizdata.map((question, index) => {
+            const optionIndex = question.options.findIndex(option => option.point === points[index]);
+            return `${question.question}: ${question.options[optionIndex].option}`;
+          });
+          setSummary(newSummary);
+          
+      
+        if (totalPoints === 6) {
+          setGreat(true);
+        } else if (totalPoints >= 3 && totalPoints <= 5) {
+          setGood(true);
+        } else if (totalPoints >= 0 && totalPoints <= 2) {
+          setPoor(true);
+        }
+      
+        setSubmitted(true);
+      };
+      
+      if (submitted) {
+        return (
+            <div className={styles.result_container_great}>
+            <div className={styles.great_background}>
+              <div className={styles.header}>
+                <NavBar page="quiz" />
+              </div>
+              <div>
+                <Image src="/results/great/great.svg" width={369} height={320} />
+              </div>
+            </div>
+            <div className={styles.group}>
+              <Image src="/results/great/three star.svg" width={143} height={36} />
+              <h1>stellarknight</h1>
+              <h3>Great Progress</h3>
+              <p className={styles.desc}>
+                Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight. It looks like you are successfully making a positive change on the planet! Keep it up and inspire others to also make an impact on the planet.
+              </p>
+            </div>
+            <div className={styles.main_results}>
+              <h1 className={styles.answer}>Your Answer</h1>
+              <div className={styles.summary_great}>
+              <h2>Summary</h2>
+              {options.map((option, index) => (
+                    <div key={index}>
+                      <p>{option.option}</p>
                     </div>
-                );
-        
-            } else if (totalPoints >= 3 && totalPoints <= 5) {
-                return (
-                    <div className={styles.result_container_good}>
-                        <div className={styles.good_background}>
-                            <div className={styles.header}>
-                                <NavBar page='quiz' />
-                            </div>
-                            <div>
-                                <Image src="/results/good/good.svg" width={369} height={320} />
-                            </div>
-                        </div>
-                        <div className={styles.group}>
-                            <Image src="/results/good/two stars.svg" width={143} height={36} />
-                            <h1>cosmicwarrior</h1>
-                            <h3>Good Progress</h3>
-                            <p className={styles.desc}>
-                                Congratulations on your quiz results! You have been
-                                identified and placed as a CosmicWarrior. We have
-                                designed a set of daily quests for you to adopt and
-                                contribute towards the betterment of our environment.
-                                With your current habits and answers, we believe you
-                                have the potential to make a positive impact on our planet.
-                                Are you prepared to take on this challenge and join us on
-                                this quest towards a greener world? Let's embark on this
-                                journey together and create a lasting difference!</p>
-                        </div>
-                        <div className={styles.main_results}>
-                            <h1 className={styles.answer}>Your Answer</h1>
-                            <div className={styles.summary_good}>
-                                <h2>Summary</h2>
-                                {results.map((result, index) => (
-                                    <div key={index} className={styles.test}>
-                                        <div className={styles.option_chosen}>
-                                            <p>{result.selectedOption}{result.outcome}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-        
-                            <div className={styles.quest_good}>
-                                <h1 className={styles.quest}>Your Quest</h1>
-                                <div className={styles.improve_good}>
-                                    <h2>How to improve</h2>
-                                    {results.map((result, index) => (
-                                        <div key={index} className={styles.test}>
-                                            <div className={styles.quest}>
-                                                <p>{result.result}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-        
-                            <div className={styles.result_buttons_good}>
-                                <button onClick={handleIntro}>Redo the journey?</button>
-                                <button onClick={handleHome}>Go back to home</button>
-                            </div>
-        
-                        </div>
+                  ))}
+              </div>
+             
+      
+              <div className={styles.quest_great}>
+                <h1 className={styles.quest}>Your Quest</h1>
+                <div className={styles.improve_great}>
+                  <h2>How to improve</h2>
+                  {options.map((option, index) => (
+                    <div key={index}>
+                      <p>{option.result}</p>
                     </div>
-                );
-            } else if (totalPoints >= 0 && totalPoints <= 2) {
-                return (
-                    <div className={styles.result_container_poor}>
-                        <div className={styles.poor_background}>
-                            <div className={styles.header}>
-                                <NavBar page='quiz' />
-                            </div>
-                            <div>
-                                <Image src="/results/poor/poor.svg" width={369} height={320} />
-                            </div>
-                        </div>
-                        <div className={styles.poor_group}>
-                            <Image src="/results/poor/one star.svg" width={143} height={36} />
-                            <h1>lunarsoldier</h1>
-                            <h3>Poor Progress</h3>
-                            <p className={styles.desc}>
-                                We regret to inform you that your quiz results indicate a
-                                low score, and as a result, you have been placed as a LunarSoldier.
-                                Based on your current habits and inputted answers, we have curated a
-                                list of quests for you to incorporate into your daily routine to improve
-                                our environment. Are you ready to accept the challenge and make a
-                                positive impact on our planet? Let's embark on this quest together
-                                and strive to make a difference!</p>
-                        </div>
-                        <div className={styles.main_results_poor}>
-                            <h1 className={styles.answer}>Your Answer</h1>
-                            <div className={styles.summary_poor}>
-                                <h2>Summary</h2>
-                                {results.map((result, index) => (
-                                    <div key={index}>
-                                        <div className={styles.option_chosen_poor}>
-                                            <p>{result.selectedOption}{result.outcome}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-        
-                            <div className={styles.quest_poor}>
-                                <h1 className={styles.quest}>Your Quest</h1>
-                                <div className={styles.improve_poor}>
-                                    <h2>How to improve</h2>
-                                    {results.map((result, index) => (
-                                        <div key={index}>
-                                            <div className={styles.quest}>
-                                                <p>{result.result}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-        
-                            <div className={styles.result_buttons_poor}>
-                                <button onClick={handleIntro}>Redo the journey?</button>
-                                <button onClick={handleHome}>Go back to home</button>
-                            </div>
-        
-                        </div>
-                    </div>
-                );
-            }
-        })
-        handleReset();
-    }
+                  ))}
+                </div>
+              </div>
+      
+              <div className={styles.result_buttons_great}>
+                <button onClick={handleIntro}>Redo the journey?</button>
+                <button onClick={handleHome}>Go back to home</button>
+              </div> 
+            </div>
+          </div>
+        );
+      }
 
     return (
         <>

@@ -5,7 +5,7 @@ export default function ProgressBar({ questionIndex, totalQuestions }) {
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        const percentage = ((questionIndex - 1) / totalQuestions) * 100;
+        const percentage = ((questionIndex) / totalQuestions) * 100;
         setWidth(`${percentage}%`);
     }, [questionIndex, totalQuestions]);
 
