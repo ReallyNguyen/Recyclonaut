@@ -26,15 +26,17 @@ export default function Resources() {
                 />
 
                 <h1 className={styles.header}>Resources</h1>
-
-                <div className={styles.fashion}>
-                    <Image src='resource/fashion.svg' width={142} height={142} />
-                    <h2>Sustainable Fashion</h2>
-                    <p>Sustainable fashion reduces the fashion industry's negative impact on the environment and supports ethical manufacturing. It values quality, eco-friendly materials, and fair labor practices to reduce waste and environmental damage. Click "Learn More" above to explore our eco-friendly clothing options and sustainable fashion. Join us in making a positive impact on the planet and the fashion industry!</p>
-                    <button onClick={handleFashion}>
-                        Learn More
-                    </button>
+                <div className={styles.container}>
+                    <div className={styles.fashion}>
+                        <Image src='resource/fashion.svg' width={142} height={142} />
+                        <h2>Sustainable Fashion</h2>
+                        <p>Sustainable fashion reduces the fashion industry's negative impact on the environment and supports ethical manufacturing. It values quality, eco-friendly materials, and fair labor practices to reduce waste and environmental damage. Click "Learn More" above to explore our eco-friendly clothing options and sustainable fashion. Join us in making a positive impact on the planet and the fashion industry!</p>
+                        <button onClick={handleFashion}>
+                            Learn More
+                        </button>
+                    </div>
                 </div>
+
 
                 <div className={styles.shopping}>
                     <Image src='resource/shop.svg' width={142} height={142} />

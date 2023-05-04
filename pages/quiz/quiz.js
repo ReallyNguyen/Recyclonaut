@@ -162,7 +162,7 @@ export default function Quiz() {
             </div>
         );
 
-    } else if (quizCompleted && score >= 2 && score <= 4) {
+    } else if (quizCompleted && score >= 3 && score <= 5) {
         return (
             <div className={styles.result_container_good}>
                 <div className={styles.good_background}>
@@ -223,7 +223,7 @@ export default function Quiz() {
                 </div>
             </div>
         );
-    } else if (quizCompleted && score >= 0 && score <= 1) {
+    } else if (quizCompleted && score >= 0 && score <= 2) {
         return (
             <div className={styles.result_container_poor}>
                 <div className={styles.poor_background}>

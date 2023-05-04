@@ -5,17 +5,19 @@
 
 .percent {
     font-family: var(--headings);
-    padding-bottom: 10px;
+    padding-left: 0.5rem;
 }
 
 .progress {
     background-color: transparent;
-    height: 20px;
+    height: 30px;
     border-radius: 10px;
     border: 1px solid var(--pure-white);
 }
 
 .progress_bar {
+    display: flex;
+    align-items: center;
     width: 25%;
     background-color: var(--dogwood-rose);
     height: 100%;
