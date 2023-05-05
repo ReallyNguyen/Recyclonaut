@@ -24,6 +24,7 @@ export default function Quiz() {
     const [great, setGreat] = useState(false)
     const [submitted, setSubmitted] = useState(false);
     const [summary, setSummary] = useState([]);
+    const isLastQuestion = questionIndex === quizdata.length - 1
 
 
     const handleIntro = () => {
@@ -40,28 +41,29 @@ export default function Quiz() {
     }, [questionIndex]);
 
     const handleOption = (optionIndex) => {
-        const updatedPoints = [...points]
-        updatedPoints[questionIndex] = quizdata[questionIndex].options[optionIndex].point
-        setPoints(updatedPoints)
+        const updatedPoints = [...points];
+        updatedPoints[questionIndex] = quizdata[questionIndex].options[optionIndex].point;
+        setPoints(updatedPoints);
         setDisable(true);
-    }
-    
+    };
+
+
     const handleNext = () => {
         if (questionIndex < quizdata.length - 1) {
             setQuestionIndex(questionIndex + 1)
         }
         setDisable(false);
     }
-    
+
     const handleBack = () => {
         if (questionIndex > 0) {
-          setQuestionIndex(questionIndex - 1)
+            setQuestionIndex(questionIndex - 1)
         }
         if (questionIndex === 1) {
             handleIntro();
         }
     }
-    
+
     const handleReset = () => {
         setQuestionIndex(0)
         setPoints([0, 0, 0, 0])
@@ -72,72 +74,190 @@ export default function Quiz() {
         const newSummary = quizdata.map((question, index) => {
             const optionIndex = question.options.findIndex(option => option.point === points[index]);
             return `${question.question}: ${question.options[optionIndex].option}`;
-          });
-          setSummary(newSummary);
-          
-      
+        });
+        setSummary(newSummary);
+
+
         if (totalPoints === 6) {
-          setGreat(true);
+            setGreat(true);
         } else if (totalPoints >= 3 && totalPoints <= 5) {
-          setGood(true);
+            setGood(true);
         } else if (totalPoints >= 0 && totalPoints <= 2) {
-          setPoor(true);
+            setPoor(true);
         }
-      
-        setSubmitted(true);
-      };
-      
-      if (submitted) {
+
+        console.log(totalPoints)
+    };
+
+    if (great) {
         return (
             <div className={styles.result_container_great}>
-            <div className={styles.great_background}>
-              <div className={styles.header}>
-                <NavBar page="quiz" />
-              </div>
-              <div>
-                <Image src="/results/great/great.svg" width={369} height={320} />
-              </div>
-            </div>
-            <div className={styles.group}>
-              <Image src="/results/great/three star.svg" width={143} height={36} />
-              <h1>stellarknight</h1>
-              <h3>Great Progress</h3>
-              <p className={styles.desc}>
-                Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight. It looks like you are successfully making a positive change on the planet! Keep it up and inspire others to also make an impact on the planet.
-              </p>
-            </div>
-            <div className={styles.main_results}>
-              <h1 className={styles.answer}>Your Answer</h1>
-              <div className={styles.summary_great}>
-              <h2>Summary</h2>
-              {options.map((option, index) => (
-                    <div key={index}>
-                      <p>{option.option}</p>
+                <div className={styles.great_background}>
+                    <div className={styles.header}>
+                        <NavBar page="quiz" />
                     </div>
-                  ))}
-              </div>
-             
-      
-              <div className={styles.quest_great}>
-                <h1 className={styles.quest}>Your Quest</h1>
-                <div className={styles.improve_great}>
-                  <h2>How to improve</h2>
-                  {options.map((option, index) => (
-                    <div key={index}>
-                      <p>{option.result}</p>
+                    <div>
+                        <Image src="/results/great/great.svg" width={369} height={320} />
                     </div>
-                  ))}
                 </div>
-              </div>
-      
-              <div className={styles.result_buttons_great}>
-                <button onClick={handleIntro}>Redo the journey?</button>
-                <button onClick={handleHome}>Go back to home</button>
-              </div> 
+                <div className={styles.group}>
+                    <Image src="/results/great/three star.svg" width={143} height={36} />
+                    <h1>stellarknight</h1>
+                    <h3>Great Progress</h3>
+                    <p className={styles.desc}>
+                        Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight. It looks like you are successfully making a positive change on the planet! Keep it up and inspire others to also make an impact on the planet.
+                    </p>
+                </div>
+                <div className={styles.main_results}>
+                    <h1 className={styles.answer}>Your Answer</h1>
+                    <div className={styles.summary_great}>
+                        <h2>Summary</h2>
+                        {options.map((option, index) => (
+                            <div key={index}>
+                                <p>{option.option}{option.outcome}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className={styles.quest_great}>
+                        <h1 className={styles.quest}>Your Quest</h1>
+                        <div className={styles.improve_great}>
+                            <h2>How to improve</h2>
+                            {options.map((option, index) => (
+                                <div key={index}>
+                                    <p>{option.result}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className={styles.result_buttons_great}>
+                        <button onClick={handleIntro}>Redo the journey?</button>
+                        <button onClick={handleHome}>Go back to home</button>
+                    </div>
+
+                </div>
             </div>
-          </div>
         );
-      }
+    } else if (good) {
+        return (
+            <div className={styles.result_container_good}>
+                <div className={styles.good_background}>
+                    <div className={styles.header}>
+                        <NavBar page='quiz' />
+                    </div>
+                    <div>
+                        <Image src="/results/good/good.svg" width={369} height={320} />
+                    </div>
+                </div>
+                <div className={styles.group}>
+                    <Image src="/results/good/two stars.svg" width={143} height={36} />
+                    <h1>Cosmic Knight</h1>
+                    <h3>Good Progress</h3>
+                    <p className={styles.desc}>
+                        Congratulations on your quiz results! You have been
+                        identified and placed as a LunarWarrior, and we have
+                        designed a set of daily quests for you to adopt and
+                        contribute towards the betterment of our environment.
+                        With your current habits and answers, we believe you
+                        have the potential to make a positive impact on our planet.
+                        Are you prepared to take on this challenge and join us on
+                        this quest towards a greener world? Let's embark on this
+                        journey together and create a lasting difference!</p>
+                </div>
+                <div className={styles.main_results}>
+                    <h1 className={styles.answer}>Your Answer</h1>
+                    <div className={styles.summary_good}>
+                        <h2>Summary</h2>
+                        {options.map((result, index) => (
+                            <div key={index} className={styles.test}>
+                                <div className={styles.option_chosen}>
+                                    <p>{result.option}{result.outcome}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className={styles.quest_good}>
+                        <h1 className={styles.quest}>Your Quest</h1>
+                        <div className={styles.improve_good}>
+                            <h2>How to improve</h2>
+                            {options.map((option, index) => (
+                                <div key={index}>
+                                    <p>{option.result}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className={styles.result_buttons_good}>
+                        <button onClick={handleIntro}>Redo the journey?</button>
+                        <button onClick={handleHome}>Go back to home</button>
+                    </div>
+
+                </div>
+            </div>
+        );
+    } else if (poor) {
+        return (
+            <div className={styles.result_container_poor}>
+                <div className={styles.poor_background}>
+                    <div className={styles.header}>
+                        <NavBar page='quiz' />
+                    </div>
+                    <div>
+                        <Image src="/results/poor/poor.svg" width={369} height={320} />
+                    </div>
+                </div>
+                <div className={styles.group}>
+                    <Image src="/results/poor/one star.svg" width={143} height={36} />
+                    <h1>Cosmic Knight</h1>
+                    <h3>poor Progress</h3>
+                    <p className={styles.desc}>
+                        Congratulations on your quiz results! You have been
+                        identified and placed as a LunarWarrior, and we have
+                        designed a set of daily quests for you to adopt and
+                        contribute towards the betterment of our environment.
+                        With your current habits and answers, we believe you
+                        have the potential to make a positive impact on our planet.
+                        Are you prepared to take on this challenge and join us on
+                        this quest towards a greener world? Let's embark on this
+                        journey together and create a lasting difference!</p>
+                </div>
+                <div className={styles.main_results}>
+                    <h1 className={styles.answer}>Your Answer</h1>
+                    <div className={styles.summary_poor}>
+                        <h2>Summary</h2>
+                        {options.map((result, index) => (
+                            <div key={index} className={styles.test}>
+                                <div className={styles.option_chosen}>
+                                    <p>{result.option}{result.outcome}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className={styles.quest_poor}>
+                        <h1 className={styles.quest}>Your Quest</h1>
+                        <div className={styles.improve_poor}>
+                            <h2>How to improve</h2>
+                            {options.map((option, index) => (
+                                <div key={index}>
+                                    <p>{option.result}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className={styles.result_buttons_poor}>
+                        <button onClick={handleIntro}>Redo the journey?</button>
+                        <button onClick={handleHome}>Go back to home</button>
+                    </div>
+
+                </div>
+            </div>
+        );
+    } 
 
     return (
         <>
@@ -155,75 +275,39 @@ export default function Quiz() {
                     <ProgressBar questionIndex={questionIndex} totalQuestions={quizdata.length} />
                     <div>
                         <div className={styles.quiz_container}>
-                                <div>
-                                    <div className={styles.img_container}>
-                                        {Array.isArray(img) ? (
-                                            <>
-                                                {img.map((img, imgIndex) => (
-                                                    <Image key={imgIndex} src={`/${img}`} width={60} height={70} />
-                                                ))}
-                                            </>
-                                        ) : (
-                                            <Image src={`/${img}`} width={160} height={110} />
-                                        )}
-                                    </div>
-                                    <h4 className={styles.question}>{question}</h4>
-                                    {options.map((option, optionIndex) => (
-                                        <Buttons
-                                            key={optionIndex}
-                                            onClick={() => handleOption(optionIndex)}
-                                            option={option}
-                                            buttons={questionIndex === "1" || questionIndex === "2" ? "3" : "2"}
-                                            // selected={selectedOptions[info.questionID] === optionIndex}
-                                            // disableButtons={nextClicked}
-                                        />
-                                    ))}
+                            <div>
+                                <div className={styles.img_container}>
+                                    {Array.isArray(img) ? (
+                                        <>
+                                            {img.map((img, imgIndex) => (
+                                                <Image key={imgIndex} src={`/${img}`} width={60} height={70} />
+                                            ))}
+                                        </>
+                                    ) : (
+                                        <Image src={`/${img}`} width={160} height={110} />
+                                    )}
                                 </div>
+                                <h4 className={styles.question}>{question}</h4>
+                                {options.map((option, index) => (
+                                    <div key={index} onClick={() => handleOption(index)}>
+                                        <button type="button">
+                                            {option.option}
+                                        </button>
+                                    </div>
+
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className={styles.back_and_next}>
-                        {button.map((info, index) => {
-                            if (info.buttons.toLowerCase() === 'quiz' && questionIndex < quizdata.length - 1) {
-                                return (
-                                    <OtherButton
-                                        key={index}
-                                        back={info.back}
-                                        next={info.next}
-                                        type={info.questionIndex === "4" ? "submit" : "quiz"}
-                                        onNext={handleNext}
-                                        onBack={handleBack}
-                                        disabled={disable}
-                                        info={info}
-                                    />
-                                );
-                            } else if (info.buttons.toLowerCase() === 'submit' && questionIndex === quizdata.length - 1) {
-                                return (
-                                    <OtherButton
-                                        key={index}
-                                        back={info.back}
-                                        next={info.next}
-                                        type="submit"
-                                        onNext={handleSubmit}
-                                        onBack={handleBack}
-                                        disabled={disable}
-                                        info={info}
-                                    />
-                                );
-                            } else if (info.buttons.toLowerCase() === 'quiz' && questionIndex === 1) {
-                                return (
-                                    <OtherButton
-                                        key={index}
-                                        back={info.back}
-                                        next={info.next}
-                                        type="submit"
-                                        onNext={handleNext}
-                                        onBack={handleBack}
-                                        disabled={!disable}
-                                        info={info}
-                                    />
-                                );
-                            }
-                        })}
+                        <div>
+                            {questionIndex > 0 && <button onClick={handleBack}>Back</button>}
+                            {isLastQuestion ? (
+                                <button onClick={handleSubmit}>Submit</button>
+                            ) : (
+                                <button onClick={handleNext}>Next</button>
+                            )}
+                        </div>
                     </div>
                 </div>
             </main>
