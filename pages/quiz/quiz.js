@@ -16,7 +16,6 @@ export default function Quiz() {
     const [options, setOptions] = useState([]);
     const [questionIndex, setQuestionIndex] = useState(0)
     const [points, setPoints] = useState([0, 0, 0, 0])
-    const [button, setButton] = useState([...buttondata]);
     const [disable, setDisable] = useState(false);
     const { img } = quizdata[questionIndex];
     const [poor, setPoor] = useState(false)
@@ -24,6 +23,7 @@ export default function Quiz() {
     const [great, setGreat] = useState(false)
     const [submitted, setSubmitted] = useState(false);
     const [summary, setSummary] = useState([]);
+    const [improve, setImprove] = useState([]);
     const isLastQuestion = questionIndex === quizdata.length - 1
 
 
@@ -73,9 +73,15 @@ export default function Quiz() {
         const totalPoints = points.reduce((sum, point) => sum + point, 0);
         const newSummary = quizdata.map((question, index) => {
             const optionIndex = question.options.findIndex(option => option.point === points[index]);
-            return `${question.question}: ${question.options[optionIndex].option}`;
+            return `${question.options[optionIndex].outcome} ${question.options[optionIndex].option}`;
         });
         setSummary(newSummary);
+
+        const newImprove = quizdata.map((question, index) => {
+            const optionIndex = question.options.findIndex(option => option.point === points[index]);
+            return `${question.options[optionIndex].result}`;
+        });
+        setImprove(newImprove);
 
 
         if (totalPoints === 6) {
@@ -87,6 +93,8 @@ export default function Quiz() {
         }
         console.log(totalPoints)
     };
+
+    console.log(handleSubmit)
 
     if (great) {
         return (
@@ -101,7 +109,7 @@ export default function Quiz() {
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/great/three star.svg" width={143} height={36} />
-                    <h1>stellarknight</h1>
+                    <h1>Stellar Knight</h1>
                     <h3>Great Progress</h3>
                     <p className={styles.desc}>
                         Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight. It looks like you are successfully making a positive change on the planet! Keep it up and inspire others to also make an impact on the planet.
@@ -111,9 +119,11 @@ export default function Quiz() {
                     <h1 className={styles.answer}>Your Answer</h1>
                     <div className={styles.summary_great}>
                         <h2>Summary</h2>
-                        {options.map((option, index) => (
-                            <div key={index}>
-                                <p>{option.option}{option.outcome}</p>
+                        {summary.map((result, index) => (
+                            <div key={index} className={styles.test}>
+                                <div className={styles.option_chosen}>
+                                    <p>{result}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -122,9 +132,11 @@ export default function Quiz() {
                         <h1 className={styles.quest}>Your Quest</h1>
                         <div className={styles.improve_great}>
                             <h2>How to improve</h2>
-                            {options.map((option, index) => (
-                                <div key={index}>
-                                    <p>{option.result}</p>
+                            {improve.map((result, index) => (
+                                <div key={index} className={styles.test}>
+                                    <div className={styles.option_chosen}>
+                                        <p>{result}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -151,7 +163,7 @@ export default function Quiz() {
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/good/two stars.svg" width={143} height={36} />
-                    <h1>Cosmic Knight</h1>
+                    <h1>Cosmic Warrior</h1>
                     <h3>Good Progress</h3>
                     <p className={styles.desc}>
                         Congratulations on your quiz results! You have been
@@ -168,10 +180,10 @@ export default function Quiz() {
                     <h1 className={styles.answer}>Your Answer</h1>
                     <div className={styles.summary_good}>
                         <h2>Summary</h2>
-                        {options.map((result, index) => (
+                        {summary.map((result, index) => (
                             <div key={index} className={styles.test}>
                                 <div className={styles.option_chosen}>
-                                    <p>{result.option}{result.outcome}</p>
+                                    <p>{result}</p>
                                 </div>
                             </div>
                         ))}
@@ -181,9 +193,11 @@ export default function Quiz() {
                         <h1 className={styles.quest}>Your Quest</h1>
                         <div className={styles.improve_good}>
                             <h2>How to improve</h2>
-                            {options.map((option, index) => (
-                                <div key={index}>
-                                    <p>{option.result}</p>
+                            {improve.map((result, index) => (
+                                <div key={index} className={styles.test}>
+                                    <div className={styles.option_chosen}>
+                                        <p>{result}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -210,7 +224,7 @@ export default function Quiz() {
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/poor/one star.svg" width={143} height={36} />
-                    <h1>Cosmic Knight</h1>
+                    <h1>Space Guard</h1>
                     <h3>poor Progress</h3>
                     <p className={styles.desc}>
                         Congratulations on your quiz results! You have been
@@ -227,10 +241,10 @@ export default function Quiz() {
                     <h1 className={styles.answer}>Your Answer</h1>
                     <div className={styles.summary_poor}>
                         <h2>Summary</h2>
-                        {options.map((result, index) => (
+                        {summary.map((result, index) => (
                             <div key={index} className={styles.test}>
                                 <div className={styles.option_chosen}>
-                                    <p>{result.option}{result.outcome}</p>
+                                    <p>{result}</p>
                                 </div>
                             </div>
                         ))}
@@ -240,9 +254,11 @@ export default function Quiz() {
                         <h1 className={styles.quest}>Your Quest</h1>
                         <div className={styles.improve_poor}>
                             <h2>How to improve</h2>
-                            {options.map((option, index) => (
-                                <div key={index}>
-                                    <p>{option.result}</p>
+                            {improve.map((result, index) => (
+                                <div key={index} className={styles.test}>
+                                    <div className={styles.option_chosen}>
+                                        <p>{result}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
