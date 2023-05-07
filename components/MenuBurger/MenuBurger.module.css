@@ -63,3 +63,10 @@
 .link:hover {
     color: var(--dogwood-rose);
 }
+
+@media only screen and (max-width: 504px) {
+    .openMenu {
+        right: 8%;
+        top: 16%;
+    }
+}
