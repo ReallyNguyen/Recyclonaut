@@ -59,7 +59,7 @@ export default function Quiz() {
         if (questionIndex > 0) {
             setQuestionIndex(questionIndex - 1)
         }
-        if (questionIndex === 1) {
+        if (questionIndex === 0) {
             handleIntro();
         }
     }
@@ -85,7 +85,6 @@ export default function Quiz() {
         } else if (totalPoints >= 0 && totalPoints <= 2) {
             setPoor(true);
         }
-
         console.log(totalPoints)
     };
 
@@ -257,7 +256,7 @@ export default function Quiz() {
                 </div>
             </div>
         );
-    } 
+    }
 
     return (
         <>
@@ -301,11 +300,16 @@ export default function Quiz() {
                     </div>
                     <div className={styles.back_and_next}>
                         <div>
-                            {questionIndex > 0 && <button onClick={handleBack}>Back</button>}
                             {isLastQuestion ? (
-                                <button onClick={handleSubmit}>Submit</button>
+                                <>
+                                    <button onClick={handleBack}>Back</button>
+                                    <button onClick={handleSubmit}>Submit</button>
+                                </>
                             ) : (
-                                <button onClick={handleNext}>Next</button>
+                                <>
+                                    <button onClick={handleBack}>Back</button>
+                                    <button onClick={handleNext}>Next</button>
+                                </>
                             )}
                         </div>
                     </div>
