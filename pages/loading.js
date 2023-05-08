@@ -10,7 +10,7 @@ export default function Loading() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       router.push("/");
-    }, 4000);
+    }, 1000000);
 
     return () => {
       clearTimeout(timeout);

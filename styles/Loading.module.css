@@ -43,3 +43,13 @@
 .credits {
     font-family: var(--body-text);
 }
+
+@media only screen and (max-width: 504px) {
+    .orbit {
+        margin-right: 1rem;
+    }
+
+    .text {
+        margin-top: 6.5rem;
+    }
+}

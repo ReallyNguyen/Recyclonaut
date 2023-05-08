@@ -131,7 +131,7 @@ export default function Quiz() {
                     <div className={styles.quest_great}>
                         <h1 className={styles.quest}>Your Quest</h1>
                         <div className={styles.improve_great}>
-                            <h2>How to improve</h2>
+                            <h2>Congratulations</h2>
                             {improve.map((result, index) => (
                                 <div key={index} className={styles.test}>
                                     <div className={styles.option_chosen}>
