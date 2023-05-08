@@ -42,8 +42,8 @@
 @media only screen and (max-width: 504px) {
     .chartContainer {
         position: absolute;
-        top: 36rem;
-        left: 0.5rem;
+        top: 45rem;
+        left: 13rem;
         z-index: 1;
         width: 400px;
         height: 300px;
