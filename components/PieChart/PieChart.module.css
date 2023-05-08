@@ -1,7 +1,7 @@
 .chartContainer {
     position: absolute;
-    top: 75%;
-    left: 37%;
+    top: 35rem;
+    left: 35rem;
     z-index: 1;
     width: 400px;
     height: 300px;
@@ -41,8 +41,8 @@
 @media only screen and (max-width: 504px) {
     .chartContainer {
         position: absolute;
-        top: 64%;
-        left: 2%;
+        top: 36rem;
+        left: 0.5rem;
         z-index: 1;
         width: 400px;
         height: 300px;
