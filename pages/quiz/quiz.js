@@ -67,16 +67,15 @@ export default function Quiz() {
         setDisableNext(false); // Enable the "Next" button when an option is clicked
     };
 
-
-
     const handleNext = () => {
         if (questionIndex < quizdata.length - 1) {
             setQuestionIndex(questionIndex + 1);
             resetActiveOption(); // Reset activeOption when moving to the next question
         }
-        setDisable(false);
+        setDisable(false); // Enable the options for the next question
+        setDisableNext(true); // Disable the "Next" button for the next question until an option is selected
+        setActiveOption(null); // Deselect the currently selected option
     };
-
 
     const resetActiveOption = () => {
         setActiveOption(null);
