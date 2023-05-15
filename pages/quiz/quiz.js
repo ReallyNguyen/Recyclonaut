@@ -26,6 +26,8 @@ export default function Quiz() {
     const [improve, setImprove] = useState([]);
     const isLastQuestion = questionIndex === quizdata.length - 1
     const [isActive, setIsActive] = useState(false);
+    const [activeOption, setActiveOption] = useState(null);
+    const [disableNext, setDisableNext] = useState(true);
 
     const handleClick = (event) => {
         // if (disableButtons) {
@@ -57,18 +59,28 @@ export default function Quiz() {
     }, [questionIndex]);
 
     const handleOption = (optionIndex) => {
+        setActiveOption(optionIndex);
         const updatedPoints = [...points];
         updatedPoints[questionIndex] = quizdata[questionIndex].options[optionIndex].point;
         setPoints(updatedPoints);
         setDisable(true);
+        setDisableNext(false); // Enable the "Next" button when an option is clicked
     };
+
+
 
     const handleNext = () => {
         if (questionIndex < quizdata.length - 1) {
-            setQuestionIndex(questionIndex + 1)
+            setQuestionIndex(questionIndex + 1);
+            resetActiveOption(); // Reset activeOption when moving to the next question
         }
         setDisable(false);
-    }
+    };
+
+
+    const resetActiveOption = () => {
+        setActiveOption(null);
+    };
 
     const handleBack = () => {
         if (questionIndex > 0) {
@@ -320,12 +332,16 @@ export default function Quiz() {
                                 <h4 className={styles.question}>{question}</h4>
                                 {options.map((option, index) => (
                                     <div key={index} onClick={() => handleOption(index)}>
-                                        <button type="button" className={`${isActive ? styles.active : ''} && ${styles.button}`} onClick={handleClick}>
+                                        <button
+                                            type="button"
+                                            className={`${index === activeOption ? styles.active : ''} ${styles.button}`}
+                                            disabled={disable} // Disable the button when `disable` is true
+                                        >
                                             {option.option}
                                         </button>
                                     </div>
-
                                 ))}
+
                             </div>
                         </div>
                     </div>
@@ -334,14 +350,19 @@ export default function Quiz() {
                             {isLastQuestion ? (
                                 <>
                                     <button className={styles.btn} onClick={handleBack}>Back</button>
-                                    <button className={styles.btn} onClick={handleSubmit}>Submit</button>
+                                    <button className={styles.btn} onClick={handleSubmit} disabled={disableNext}>
+                                        Submit
+                                    </button>
                                 </>
                             ) : (
                                 <>
                                     <button className={styles.btn} onClick={handleBack}>Back</button>
-                                    <button className={styles.btn} onClick={handleNext}>Next</button>
+                                    <button className={styles.btn} onClick={handleNext} disabled={disableNext}>
+                                        Next
+                                    </button>
                                 </>
                             )}
+
                         </div>
                     </div>
                 </div>

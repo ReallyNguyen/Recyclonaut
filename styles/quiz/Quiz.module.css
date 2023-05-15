@@ -63,7 +63,7 @@
     border: 1px solid rgba(200, 76, 9, 0.3);
 }
 
-.button:active {
+.active {
     background: linear-gradient(135deg, rgba(217, 3, 104, 0.4) 0%, rgba(217, 3, 104, 0.1) 100%);
     border: 1px solid rgba(217, 3, 104, 0.3);
 }
@@ -79,6 +79,7 @@
     font-family: var(--buttons);
     margin: 2rem;
 }
+
 
 .btn:hover {
     background-color: var(--pure-white);
