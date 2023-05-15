@@ -25,7 +25,23 @@ export default function Quiz() {
     const [summary, setSummary] = useState([]);
     const [improve, setImprove] = useState([]);
     const isLastQuestion = questionIndex === quizdata.length - 1
+    const [isActive, setIsActive] = useState(false);
 
+    const handleClick = (event) => {
+        // if (disableButtons) {
+        //     return;
+        // }
+
+        const currentButton = event.currentTarget;
+        const buttons = document.querySelectorAll(`.${styles.buttons} button`);
+        buttons.forEach((button) => {
+            if (button === currentButton) {
+                button.classList.toggle(styles.active);
+            } else {
+                button.classList.remove(styles.active);
+            }
+        });
+    };
 
     const handleIntro = () => {
         router.push("../quizintro");
@@ -46,7 +62,6 @@ export default function Quiz() {
         setPoints(updatedPoints);
         setDisable(true);
     };
-
 
     const handleNext = () => {
         if (questionIndex < quizdata.length - 1) {
@@ -305,7 +320,7 @@ export default function Quiz() {
                                 <h4 className={styles.question}>{question}</h4>
                                 {options.map((option, index) => (
                                     <div key={index} onClick={() => handleOption(index)}>
-                                        <button type="button">
+                                        <button type="button" className={`${isActive ? styles.active : ''} && ${styles.button}`} onClick={handleClick}>
                                             {option.option}
                                         </button>
                                     </div>
@@ -318,13 +333,13 @@ export default function Quiz() {
                         <div>
                             {isLastQuestion ? (
                                 <>
-                                    <button onClick={handleBack}>Back</button>
-                                    <button onClick={handleSubmit}>Submit</button>
+                                    <button className={styles.btn} onClick={handleBack}>Back</button>
+                                    <button className={styles.btn} onClick={handleSubmit}>Submit</button>
                                 </>
                             ) : (
                                 <>
-                                    <button onClick={handleBack}>Back</button>
-                                    <button onClick={handleNext}>Next</button>
+                                    <button className={styles.btn} onClick={handleBack}>Back</button>
+                                    <button className={styles.btn} onClick={handleNext}>Next</button>
                                 </>
                             )}
                         </div>
