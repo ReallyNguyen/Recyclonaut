@@ -136,8 +136,6 @@
     text-align: center;
 }
 
-
-
 .summary_great {
     display: flex;
     width: 350px;
@@ -163,6 +161,7 @@
 }
 
 .quest {
+    padding: 1rem;
     text-align: center;
 }
 
@@ -248,9 +247,13 @@
     background-color: var(--dogwood-rose);
     color: var(--pure-white);
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: space-evenly;
     border-radius: 10px;
+}
+
+.summary_poor>h2 {
+    text-align: center;
 }
 
 .quest_poor {
@@ -363,9 +366,13 @@
     background-color: var(--hunter-green);
     color: var(--pure-white);
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: space-evenly;
     border-radius: 10px;
+}
+
+.summary_good>h2 {
+    text-align: center;
 }
 
 .quest_good {

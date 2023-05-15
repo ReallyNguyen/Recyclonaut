@@ -120,8 +120,6 @@ export default function Quiz() {
         console.log(totalPoints)
     };
 
-    console.log(handleSubmit)
-
     if (great) {
         return (
             <div className={styles.result_container_great}>
@@ -146,7 +144,7 @@ export default function Quiz() {
                     <div className={styles.summary_great}>
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
-                            <div key={index} className={styles.test}>
+                            <div key={index} className={styles.summary}>
                                 <div className={styles.option_chosen}>
                                     <p>{result}</p>
                                 </div>
@@ -159,7 +157,7 @@ export default function Quiz() {
                         <div className={styles.improve_great}>
                             <h2>Congratulations</h2>
                             {improve.map((result, index) => (
-                                <div key={index} className={styles.test}>
+                                <div key={index} className={styles.summary}>
                                     <div className={styles.option_chosen}>
                                         <p>{result}</p>
                                     </div>
@@ -207,7 +205,7 @@ export default function Quiz() {
                     <div className={styles.summary_good}>
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
-                            <div key={index} className={styles.test}>
+                            <div key={index} className={styles.summary}>
                                 <div className={styles.option_chosen}>
                                     <p>{result}</p>
                                 </div>
@@ -220,7 +218,7 @@ export default function Quiz() {
                         <div className={styles.improve_good}>
                             <h2>How to improve</h2>
                             {improve.map((result, index) => (
-                                <div key={index} className={styles.test}>
+                                <div key={index} className={styles.summary}>
                                     <div className={styles.option_chosen}>
                                         <p>{result}</p>
                                     </div>
@@ -268,7 +266,7 @@ export default function Quiz() {
                     <div className={styles.summary_poor}>
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
-                            <div key={index} className={styles.test}>
+                            <div key={index} className={styles.summary}>
                                 <div className={styles.option_chosen}>
                                     <p>{result}</p>
                                 </div>
@@ -281,7 +279,7 @@ export default function Quiz() {
                         <div className={styles.improve_poor}>
                             <h2>How to improve</h2>
                             {improve.map((result, index) => (
-                                <div key={index} className={styles.test}>
+                                <div key={index} className={styles.summary}>
                                     <div className={styles.option_chosen}>
                                         <p>{result}</p>
                                     </div>
