@@ -63,11 +63,6 @@
     border: 1px solid rgba(200, 76, 9, 0.3);
 }
 
-.active {
-    background: linear-gradient(135deg, rgba(217, 3, 104, 0.4) 0%, rgba(217, 3, 104, 0.1) 100%);
-    border: 1px solid rgba(217, 3, 104, 0.3);
-}
-
 .btn {
     border: 2px solid var(--pure-white);
     color: var(--pure-white);
@@ -80,6 +75,10 @@
     margin: 2rem;
 }
 
+.active {
+    background: linear-gradient(135deg, rgba(217, 3, 104, 0.4) 0%, rgba(217, 3, 104, 0.1) 100%);
+    border: 1px solid rgba(217, 3, 104, 0.3);
+}
 
 .btn:hover {
     background-color: var(--pure-white);
@@ -136,6 +135,8 @@
     text-align: center;
 }
 
+
+
 .summary_great {
     display: flex;
     width: 350px;
@@ -161,7 +162,6 @@
 }
 
 .quest {
-    padding: 1rem;
     text-align: center;
 }
 
@@ -247,13 +247,9 @@
     background-color: var(--dogwood-rose);
     color: var(--pure-white);
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     justify-content: space-evenly;
     border-radius: 10px;
-}
-
-.summary_poor>h2 {
-    text-align: center;
 }
 
 .quest_poor {
@@ -366,13 +362,9 @@
     background-color: var(--hunter-green);
     color: var(--pure-white);
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     justify-content: space-evenly;
     border-radius: 10px;
-}
-
-.summary_good>h2 {
-    text-align: center;
 }
 
 .quest_good {

@@ -26,8 +26,8 @@ export default function Quiz() {
     const [improve, setImprove] = useState([]);
     const isLastQuestion = questionIndex === quizdata.length - 1
     const [isActive, setIsActive] = useState(false);
-    const [activeOption, setActiveOption] = useState(null);
-    const [disableNext, setDisableNext] = useState(true);
+    const [activeOption, setActiveOption] = useState(-1);
+
 
     const handleClick = (event) => {
         // if (disableButtons) {
@@ -59,31 +59,28 @@ export default function Quiz() {
     }, [questionIndex]);
 
     const handleOption = (optionIndex) => {
-        setActiveOption(optionIndex);
         const updatedPoints = [...points];
         updatedPoints[questionIndex] = quizdata[questionIndex].options[optionIndex].point;
         setPoints(updatedPoints);
+        setActiveOption(optionIndex); // Set the active option
         setDisable(true);
-        setDisableNext(false); // Enable the "Next" button when an option is clicked
     };
+
 
     const handleNext = () => {
         if (questionIndex < quizdata.length - 1) {
             setQuestionIndex(questionIndex + 1);
-            resetActiveOption(); // Reset activeOption when moving to the next question
+            setIsActive(false);
+            setActiveOption(-1);
         }
-        setDisable(false); // Enable the options for the next question
-        setDisableNext(true); // Disable the "Next" button for the next question until an option is selected
-        setActiveOption(null); // Deselect the currently selected option
+        setDisable(false);
     };
 
-    const resetActiveOption = () => {
-        setActiveOption(null);
-    };
 
     const handleBack = () => {
         if (questionIndex > 0) {
             setQuestionIndex(questionIndex - 1)
+            setActiveOption(-1);
         }
         if (questionIndex === 0) {
             handleIntro();
@@ -120,6 +117,8 @@ export default function Quiz() {
         console.log(totalPoints)
     };
 
+    console.log(handleSubmit)
+
     if (great) {
         return (
             <div className={styles.result_container_great}>
@@ -144,7 +143,7 @@ export default function Quiz() {
                     <div className={styles.summary_great}>
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
-                            <div key={index} className={styles.summary}>
+                            <div key={index} className={styles.test}>
                                 <div className={styles.option_chosen}>
                                     <p>{result}</p>
                                 </div>
@@ -157,7 +156,7 @@ export default function Quiz() {
                         <div className={styles.improve_great}>
                             <h2>Congratulations</h2>
                             {improve.map((result, index) => (
-                                <div key={index} className={styles.summary}>
+                                <div key={index} className={styles.test}>
                                     <div className={styles.option_chosen}>
                                         <p>{result}</p>
                                     </div>
@@ -205,7 +204,7 @@ export default function Quiz() {
                     <div className={styles.summary_good}>
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
-                            <div key={index} className={styles.summary}>
+                            <div key={index} className={styles.test}>
                                 <div className={styles.option_chosen}>
                                     <p>{result}</p>
                                 </div>
@@ -218,7 +217,7 @@ export default function Quiz() {
                         <div className={styles.improve_good}>
                             <h2>How to improve</h2>
                             {improve.map((result, index) => (
-                                <div key={index} className={styles.summary}>
+                                <div key={index} className={styles.test}>
                                     <div className={styles.option_chosen}>
                                         <p>{result}</p>
                                     </div>
@@ -266,7 +265,7 @@ export default function Quiz() {
                     <div className={styles.summary_poor}>
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
-                            <div key={index} className={styles.summary}>
+                            <div key={index} className={styles.test}>
                                 <div className={styles.option_chosen}>
                                     <p>{result}</p>
                                 </div>
@@ -279,7 +278,7 @@ export default function Quiz() {
                         <div className={styles.improve_poor}>
                             <h2>How to improve</h2>
                             {improve.map((result, index) => (
-                                <div key={index} className={styles.summary}>
+                                <div key={index} className={styles.test}>
                                     <div className={styles.option_chosen}>
                                         <p>{result}</p>
                                     </div>
@@ -332,13 +331,11 @@ export default function Quiz() {
                                         <button
                                             type="button"
                                             className={`${index === activeOption ? styles.active : ''} ${styles.button}`}
-                                            disabled={disable} // Disable the button when `disable` is true
                                         >
                                             {option.option}
                                         </button>
                                     </div>
                                 ))}
-
                             </div>
                         </div>
                     </div>
@@ -347,19 +344,14 @@ export default function Quiz() {
                             {isLastQuestion ? (
                                 <>
                                     <button className={styles.btn} onClick={handleBack}>Back</button>
-                                    <button className={styles.btn} onClick={handleSubmit} disabled={disableNext}>
-                                        Submit
-                                    </button>
+                                    <button className={styles.btn} onClick={handleSubmit}>Submit</button>
                                 </>
                             ) : (
                                 <>
                                     <button className={styles.btn} onClick={handleBack}>Back</button>
-                                    <button className={styles.btn} onClick={handleNext} disabled={disableNext}>
-                                        Next
-                                    </button>
+                                    <button className={styles.btn} onClick={handleNext} disabled={activeOption === -1}>Next</button>
                                 </>
                             )}
-
                         </div>
                     </div>
                 </div>
