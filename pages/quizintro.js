@@ -2,9 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/QuizIntro.module.css'
 import { useRouter } from 'next/router'
-import Logo from '@/components/Logo'
 import NavBar from '@/components/NavBar'
-
 
 export default function Quiz() {
     const router = useRouter()
@@ -24,12 +22,11 @@ export default function Quiz() {
                     <h2 className={styles.heading}>Team Assessment</h2>
                     <div className={styles.intro}>
                         <p>
-                            Welcome aboard! We have created a brief quiz to help us assign you to a team that aligns with your answers.<br /><br />
-                            This will enable us to provide you with a set of tasks that can be easily integrated into your daily routine. <br /><br />
-                            Remember, small changes can lead to massive results.
-                            Let's work together to achieve remarkable outcomes!</p>
+                            Welcome aboard! We have created a brief quiz to help us assign you to a team to help Earth recover from the climate change disaster.<br/><br/>
+                            This will enable us to provide you with a set of tasks that can be easily integrated into your daily routine.<br /><br />
+                            Remember, small changes can lead to massive results. Let’s see which team you will earn your place on!
+                        </p>
                     </div>
-                    <Image />
                     <div className={styles.buttons}>
                         <button className={styles.button} onClick={() => router.push('./quiz/quiz')}>
                             Find Team
