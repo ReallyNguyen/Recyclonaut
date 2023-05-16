@@ -3,11 +3,8 @@ import Image from 'next/image'
 import styles from '@/styles/quiz/Quiz.module.css'
 import { useRouter } from 'next/router'
 import quizdata from '@/data/quiz.json'
-import buttondata from '@/data/otherbutton.json'
 import ProgressBar from '@/components/ProgressBar'
 import { useState, useEffect } from 'react'
-import Buttons from '@/components/Buttons/QuizButton'
-import OtherButton from '@/components/Buttons/OtherButton'
 import NavBar from '@/components/NavBar'
 
 export default function Quiz() {
@@ -21,29 +18,11 @@ export default function Quiz() {
     const [poor, setPoor] = useState(false)
     const [good, setGood] = useState(false)
     const [great, setGreat] = useState(false)
-    const [submitted, setSubmitted] = useState(false);
     const [summary, setSummary] = useState([]);
     const [improve, setImprove] = useState([]);
     const isLastQuestion = questionIndex === quizdata.length - 1
     const [isActive, setIsActive] = useState(false);
     const [activeOption, setActiveOption] = useState(-1);
-
-
-    const handleClick = (event) => {
-        // if (disableButtons) {
-        //     return;
-        // }
-
-        const currentButton = event.currentTarget;
-        const buttons = document.querySelectorAll(`.${styles.buttons} button`);
-        buttons.forEach((button) => {
-            if (button === currentButton) {
-                button.classList.toggle(styles.active);
-            } else {
-                button.classList.remove(styles.active);
-            }
-        });
-    };
 
     const handleIntro = () => {
         router.push("../quizintro");
@@ -51,6 +30,10 @@ export default function Quiz() {
 
     const handleHome = () => {
         router.push("/");
+    }
+
+    const handleResources = () => {
+        router.push("../resources");
     }
 
     useEffect(() => {
@@ -66,7 +49,6 @@ export default function Quiz() {
         setDisable(true);
     };
 
-
     const handleNext = () => {
         if (questionIndex < quizdata.length - 1) {
             setQuestionIndex(questionIndex + 1);
@@ -76,7 +58,6 @@ export default function Quiz() {
         setDisable(false);
     };
 
-
     const handleBack = () => {
         if (questionIndex > 0) {
             setQuestionIndex(questionIndex - 1)
@@ -85,11 +66,6 @@ export default function Quiz() {
         if (questionIndex === 0) {
             handleIntro();
         }
-    }
-
-    const handleReset = () => {
-        setQuestionIndex(0)
-        setPoints([0, 0, 0, 0])
     }
 
     const handleSubmit = () => {
@@ -105,7 +81,6 @@ export default function Quiz() {
             return `${question.options[optionIndex].result}`;
         });
         setImprove(newImprove);
-
 
         if (totalPoints === 6) {
             setGreat(true);
@@ -126,16 +101,15 @@ export default function Quiz() {
                     <div className={styles.header}>
                         <NavBar page="quiz" />
                     </div>
-                    <div>
-                        <Image src="/results/great/great.svg" width={369} height={320} />
-                    </div>
+                    <Image src="/results/great/great.svg" width={369} height={320} />
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/great/three star.svg" width={143} height={36} />
                     <h1>Stellar Knight</h1>
                     <h3>Great Progress</h3>
                     <p className={styles.desc}>
-                        Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight. It looks like you are successfully making a positive change on the planet! Keep it up and inspire others to also make an impact on the planet.
+                        Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight.<br/>
+                        <br/>It looks like you are successfully making a positive change on the planet! Keep it up and inspire others to also make an impact on the planet.
                     </p>
                 </div>
                 <div className={styles.main_results}>
@@ -144,9 +118,7 @@ export default function Quiz() {
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
                             <div key={index} className={styles.test}>
-                                <div className={styles.option_chosen}>
-                                    <p>{result}</p>
-                                </div>
+                                <p>{result}</p>
                             </div>
                         ))}
                     </div>
@@ -157,19 +129,17 @@ export default function Quiz() {
                             <h2>Congratulations</h2>
                             {improve.map((result, index) => (
                                 <div key={index} className={styles.test}>
-                                    <div className={styles.option_chosen}>
-                                        <p>{result}</p>
-                                    </div>
+                                    <p>{result}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <div className={styles.result_buttons_great}>
-                        <button onClick={handleIntro}>Redo the journey?</button>
-                        <button onClick={handleHome}>Go back to home</button>
+                    <div className={styles.buttons_container}>
+                        <button className={styles.result_buttons_great} onClick={handleResources}>Resources</button>
+                        <button className={styles.result_buttons_great} onClick={handleIntro}>Redo the journey?</button>
+                        <button className={styles.result_buttons_great} onClick={handleHome}>Back to home</button>
                     </div>
-
                 </div>
             </div>
         );
@@ -180,9 +150,7 @@ export default function Quiz() {
                     <div className={styles.header}>
                         <NavBar page='quiz' />
                     </div>
-                    <div>
-                        <Image src="/results/good/good.svg" width={369} height={320} />
-                    </div>
+                    <Image src="/results/good/good.svg" width={369} height={320} />
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/good/two stars.svg" width={143} height={36} />
@@ -190,14 +158,14 @@ export default function Quiz() {
                     <h3>Good Progress</h3>
                     <p className={styles.desc}>
                         Congratulations on your quiz results! You have been
-                        identified and placed as a LunarWarrior, and we have
-                        designed a set of daily quests for you to adopt and
-                        contribute towards the betterment of our environment.
-                        With your current habits and answers, we believe you
-                        have the potential to make a positive impact on our planet.
-                        Are you prepared to take on this challenge and join us on
-                        this quest towards a greener world? Let's embark on this
-                        journey together and create a lasting difference!</p>
+                        identified and placed as a CosmicWarrior.<br/>
+                        <br/>With your current habits and answers, we believe you
+                        have the potential to make a positive impact on our planet.<br/>
+                        <br/>We have designed a set of daily quests for you to adopt and
+                        contribute towards the betterment of our environment.<br/>
+                        <br/>Let's embark on this
+                        journey together and create a lasting difference!
+                    </p>
                 </div>
                 <div className={styles.main_results}>
                     <h1 className={styles.answer}>Your Answer</h1>
@@ -205,9 +173,7 @@ export default function Quiz() {
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
                             <div key={index} className={styles.test}>
-                                <div className={styles.option_chosen}>
-                                    <p>{result}</p>
-                                </div>
+                                <p>{result}</p>
                             </div>
                         ))}
                     </div>
@@ -218,19 +184,17 @@ export default function Quiz() {
                             <h2>How to improve</h2>
                             {improve.map((result, index) => (
                                 <div key={index} className={styles.test}>
-                                    <div className={styles.option_chosen}>
-                                        <p>{result}</p>
-                                    </div>
+                                    <p>{result}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <div className={styles.result_buttons_good}>
-                        <button onClick={handleIntro}>Redo the journey?</button>
-                        <button onClick={handleHome}>Go back to home</button>
+                    <div className={styles.buttons_container}>
+                        <button className={styles.result_buttons_good} onClick={handleResources}>Resources</button>
+                        <button className={styles.result_buttons_good} onClick={handleIntro}>Redo the journey?</button>
+                        <button className={styles.result_buttons_good} onClick={handleHome}>Back to home</button>
                     </div>
-
                 </div>
             </div>
         );
@@ -241,24 +205,22 @@ export default function Quiz() {
                     <div className={styles.header}>
                         <NavBar page='quiz' />
                     </div>
-                    <div>
-                        <Image src="/results/poor/poor.svg" width={369} height={320} />
-                    </div>
+                    <Image src="/results/poor/poor.svg" width={369} height={320} />
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/poor/one star.svg" width={143} height={36} />
                     <h1>Space Guard</h1>
-                    <h3>poor Progress</h3>
+                    <h3>Poor Progress</h3>
                     <p className={styles.desc}>
-                        Congratulations on your quiz results! You have been
-                        identified and placed as a LunarWarrior, and we have
-                        designed a set of daily quests for you to adopt and
-                        contribute towards the betterment of our environment.
-                        With your current habits and answers, we believe you
-                        have the potential to make a positive impact on our planet.
-                        Are you prepared to take on this challenge and join us on
-                        this quest towards a greener world? Let's embark on this
-                        journey together and create a lasting difference!</p>
+                        Based on your quiz results, you have been
+                        identified and placed as a SpaceGuard.<br/>
+                        <br/>We have designed a set of daily quests for you to adopt and
+                        contribute towards the betterment of our environment.<br/>
+                        <br/>With your current habits and answers, we believe you
+                        have the potential to make a positive impact on our planet.<br/>
+                        <br/>Are you prepared to take on this challenge and join us on
+                        this quest towards a greener world?
+                    </p>
                 </div>
                 <div className={styles.main_results}>
                     <h1 className={styles.answer}>Your Answer</h1>
@@ -266,9 +228,7 @@ export default function Quiz() {
                         <h2>Summary</h2>
                         {summary.map((result, index) => (
                             <div key={index} className={styles.test}>
-                                <div className={styles.option_chosen}>
-                                    <p>{result}</p>
-                                </div>
+                                <p>{result}</p>
                             </div>
                         ))}
                     </div>
@@ -279,19 +239,17 @@ export default function Quiz() {
                             <h2>How to improve</h2>
                             {improve.map((result, index) => (
                                 <div key={index} className={styles.test}>
-                                    <div className={styles.option_chosen}>
-                                        <p>{result}</p>
-                                    </div>
+                                    <p>{result}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <div className={styles.result_buttons_poor}>
-                        <button onClick={handleIntro}>Redo the journey?</button>
-                        <button onClick={handleHome}>Go back to home</button>
+                    <div className={styles.buttons_container}>
+                        <button className={styles.result_buttons_poor} onClick={handleResources}>Resources</button>
+                        <button className={styles.result_buttons_poor} onClick={handleIntro}>Redo the journey?</button>
+                        <button className={styles.result_buttons_poor} onClick={handleHome}>Back to home</button>
                     </div>
-
                 </div>
             </div>
         );
