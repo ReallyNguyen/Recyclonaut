@@ -25,7 +25,7 @@ export default function Home() {
             STORY
           </button>
           <button className={styles.button} onClick={() => router.push('./quizintro')}>
-            QUIZ
+            ASSESSMENT
           </button>
           <button className={styles.button} onClick={() => router.push('./resources')}>
             RESOURCES

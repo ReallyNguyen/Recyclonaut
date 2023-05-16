@@ -18,24 +18,27 @@ export default function Quiz() {
             </Head>
             <main className={styles.main}>
                 <div className={styles.container}>
-                    <NavBar />
+                    <div className={styles.header}>
+                        <NavBar page='quiz' />
+                    </div>
+                    <h2 className={styles.heading}>Team Assessment</h2>
                     <div className={styles.intro}>
-                        <p>Welcome aboard! As we embark on this journey together,
-                            I'll serve as your mentor and instructor on how we can make a positive impact on our planet
-                            and shape a better future. <br /><br />
-                            We have created a brief quiz to help us assign you to a team that aligns with your answers.
+                        <p>
+                            Welcome aboard! We have created a brief quiz to help us assign you to a team that aligns with your answers.<br /><br />
                             This will enable us to provide you with a set of tasks that can be easily integrated into your daily routine. <br /><br />
                             Remember, small changes can lead to massive results.
                             Let's work together to achieve remarkable outcomes!</p>
                     </div>
+                    <Image />
                     <div className={styles.buttons}>
-                        <button className={styles.button} onClick={() => router.push('/')}>
-                            Back
-                        </button>
                         <button className={styles.button} onClick={() => router.push('./quiz/quiz')}>
-                            Quiz
+                            Find Team
+                        </button>
+                        <button className={styles.button} onClick={() => router.push('/')}>
+                            Return Home
                         </button>
                     </div>
+                    <Image src={'/story/journey.png'} width={414} height={250}/>
                 </div>
             </main>
         </>

@@ -30,7 +30,7 @@ export default function MenuBurger() {
                     <div ref={menuRef} className={styles.openMenu}>
                         <Link className={styles.link} href="/">Home</Link>
                         <Link className={styles.link} href="/story">Story</Link>
-                        <Link className={styles.link} href="/quizintro">Quiz</Link>
+                        <Link className={styles.link} href="/quizintro">Assessment</Link>
                         <Link className={styles.link} href="/resources">Resources</Link>
                         <Link className={styles.link} href="/about">About</Link>
                     </div> :

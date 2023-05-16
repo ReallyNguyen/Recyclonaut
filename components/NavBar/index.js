@@ -1,7 +1,6 @@
 import styles from './NavBar.module.css'
 import Logo from '../Logo'
 import MenuBurger from '../MenuBurger'
-import Link from 'next/link'
 
 export default function NavBar({
     page = 'none'
@@ -21,7 +20,6 @@ export default function NavBar({
                         <MenuBurger />
                     </div>
                 ) : null}
-
             </div>
         </>
     )

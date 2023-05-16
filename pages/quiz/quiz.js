@@ -101,7 +101,7 @@ export default function Quiz() {
                     <div className={styles.header}>
                         <NavBar page="quiz" />
                     </div>
-                    <Image src="/results/great/great.svg" width={369} height={320} />
+                    <Image className={styles.float} src="/results/great/great.svg" width={369} height={320} />
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/great/three star.svg" width={143} height={36} />
@@ -137,7 +137,7 @@ export default function Quiz() {
 
                     <div className={styles.buttons_container}>
                         <button className={styles.result_buttons_great} onClick={handleResources}>Resources</button>
-                        <button className={styles.result_buttons_great} onClick={handleIntro}>Redo the journey?</button>
+                        <button className={styles.result_buttons_great} onClick={handleIntro}>Redo assessment</button>
                         <button className={styles.result_buttons_great} onClick={handleHome}>Back to home</button>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ export default function Quiz() {
                     <div className={styles.header}>
                         <NavBar page='quiz' />
                     </div>
-                    <Image src="/results/good/good.svg" width={369} height={320} />
+                    <Image className={styles.float} src="/results/good/good.svg" width={369} height={320} />
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/good/two stars.svg" width={143} height={36} />
@@ -192,7 +192,7 @@ export default function Quiz() {
 
                     <div className={styles.buttons_container}>
                         <button className={styles.result_buttons_good} onClick={handleResources}>Resources</button>
-                        <button className={styles.result_buttons_good} onClick={handleIntro}>Redo the journey?</button>
+                        <button className={styles.result_buttons_good} onClick={handleIntro}>Redo assessment</button>
                         <button className={styles.result_buttons_good} onClick={handleHome}>Back to home</button>
                     </div>
                 </div>
@@ -205,7 +205,7 @@ export default function Quiz() {
                     <div className={styles.header}>
                         <NavBar page='quiz' />
                     </div>
-                    <Image src="/results/poor/poor.svg" width={369} height={320} />
+                    <Image className={styles.float} src="/results/poor/poor.svg" width={369} height={320} />
                 </div>
                 <div className={styles.group}>
                     <Image src="/results/poor/one star.svg" width={143} height={36} />
@@ -247,7 +247,7 @@ export default function Quiz() {
 
                     <div className={styles.buttons_container}>
                         <button className={styles.result_buttons_poor} onClick={handleResources}>Resources</button>
-                        <button className={styles.result_buttons_poor} onClick={handleIntro}>Redo the journey?</button>
+                        <button className={styles.result_buttons_poor} onClick={handleIntro}>Redo assessment</button>
                         <button className={styles.result_buttons_poor} onClick={handleHome}>Back to home</button>
                     </div>
                 </div>
@@ -268,6 +268,7 @@ export default function Quiz() {
                     <div className={styles.header}>
                         <NavBar page='quiz' />
                     </div>
+                    <h2>Team Assessment</h2>
                     <ProgressBar questionIndex={questionIndex} totalQuestions={quizdata.length} />
                     <div>
                         <div className={styles.quiz_container}>

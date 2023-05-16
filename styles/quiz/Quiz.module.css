@@ -71,6 +71,12 @@
     margin: 2rem;
 }
 
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--pure-white);
+    color: var(--dark-mode);
+}
+
 .active {
     background: linear-gradient(135deg, rgba(217, 3, 104, 0.4) 0%, rgba(217, 3, 104, 0.1) 100%);
     border: 1px solid rgba(217, 3, 104, 0.3);
@@ -85,6 +91,27 @@
 }
 
 /* results */
+.float {
+    animation-name: float;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
 
 /* Poor */
 .result_container_poor {
