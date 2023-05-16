@@ -17,6 +17,10 @@
     align-items: center;
 }
 
+.heading {
+    font-family: var(--headings);
+}
+
 .question {
     text-align: center;
     width: 300px;
@@ -57,6 +61,7 @@
 .button:hover {
     background: linear-gradient(135deg, rgba(200, 76, 9, 0.4) 0%, rgba(200, 76, 9, 0.1) 100%);
     border: 1px solid rgba(200, 76, 9, 0.3);
+    cursor: pointer;
 }
 
 .btn {

@@ -1,8 +1,6 @@
 .main {
     width: 414px;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     margin: 0 auto;
     background-color: var(--dark-mode);
     color: var(--pure-white);
@@ -12,6 +10,16 @@
 .header {
     text-align: center;
     font-family: var(--headings);
+    padding: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 3rem;
 }
 
 .fashion,
@@ -22,29 +30,30 @@
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    transform: scale(0.85);
+    width: 280px;
+    font-size: 14px;
     background: linear-gradient(170deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .fashion * {
-    padding: 1.4rem;
+    padding: 1rem;
 }
 
 .shopping * {
-    padding: 1.4rem;
+    padding: 1rem;
 }
 
 .product * {
-    padding: 1.4rem;
+    padding: 1rem;
 }
 
 .recycling * {
-    padding: 1.4rem;
+    padding: 1rem;
 }
 
 .fashion button,
@@ -53,17 +62,24 @@
 .recycling button {
     border-radius: 10px;
     font-family: var(--buttons);
-    background-color: transparent;
+    font-size: 18px;
     color: var(--pure-white);
-    border: 2px solid white;
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 250px;
+    margin-top: 1rem;
 }
 
 .fashion button:hover,
 .shopping button:hover,
 .product button:hover,
 .recycling button:hover {
-    border-radius: 10px;
     font-family: var(--buttons);
-    background-color: var(--pure-white);
-    color: var(--dark-mode);
+    background: linear-gradient(135deg, rgba(200, 76, 9, 0.7) 0%, rgba(200, 76, 9, 0.1) 100%);
+    border: 2px solid rgba(200, 76, 9, 0.3);
+    cursor: pointer;
 }

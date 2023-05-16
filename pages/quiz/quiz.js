@@ -268,7 +268,7 @@ export default function Quiz() {
                     <div className={styles.header}>
                         <NavBar page='quiz' />
                     </div>
-                    <h2>Team Assessment</h2>
+                    <h2 className={styles.heading}>Team Assessment</h2>
                     <ProgressBar questionIndex={questionIndex} totalQuestions={quizdata.length} />
                     <div>
                         <div className={styles.quiz_container}>
