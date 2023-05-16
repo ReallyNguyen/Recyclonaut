@@ -301,6 +301,10 @@
     height: 400px;
 }
 
+.trophy {
+    padding: 1rem;
+}
+
 /* Common styles */
 .good_background,
 .great_background,
@@ -369,7 +373,7 @@
     height: 60px;
     color: var(--pure-white);
     font-family: var(--buttons);
-    font-size: medium;
+    font-size: large;
     border: none;
     border-radius: 10px;
 }

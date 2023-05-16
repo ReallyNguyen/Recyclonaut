@@ -48,7 +48,7 @@
     right: 37%;
     top: 3%;
     gap: 2rem;
-    padding: 3rem;
+    padding: 2rem;
     background-color: var(--pure-white);
     z-index: 10;
     border-radius: 15px;
@@ -57,7 +57,7 @@
 .link {
     color: var(--russian-violet);
     text-decoration: none;
-    font-family: var(--body-text);
+    font-family: var(--buttons);
 }
 
 .link:hover {

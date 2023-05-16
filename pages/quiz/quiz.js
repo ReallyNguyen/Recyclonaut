@@ -104,11 +104,12 @@ export default function Quiz() {
                     <Image className={styles.float} src="/results/great/great.svg" width={369} height={320} />
                 </div>
                 <div className={styles.group}>
+                    <Image className={styles.trophy} src="/results/great/trophy.png" width={143} height={100} />
                     <Image src="/results/great/three star.svg" width={143} height={36} />
                     <h1>Stellar Knight</h1>
                     <h3>Great Progress</h3>
                     <p className={styles.desc}>
-                        Congratulations! Based on your quiz results, you have been identified and placed on team StellarKnight.<br/>
+                        Congratulations! Based on your quiz results, you have been identified and placed on the highest team, StellarKnight.<br/>
                         <br/>It looks like you are successfully making a positive change on the planet! Keep it up and inspire others to also make an impact on the planet.
                     </p>
                 </div>
