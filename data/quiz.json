@@ -23,7 +23,7 @@
             {
                 "option": "Donate them",
                 "point": 1,
-                "result": "Good effort! Donating old clothes is a great way to give them a second life.",
+                "result": "Donating old clothes is good for the environment, but also consider repurposing them to give them a new life.",
                 "outcome": "\u2713"
             }
         ]
@@ -36,7 +36,7 @@
             {
                 "option": "Eco-friendly brands",
                 "point": 1,
-                "result": "You're making sustainable choices!",
+                "result": "You're making sustainable choices but make sure those brands are not greenwashing!",
                 "outcome": "\u2713"
             },
             {
