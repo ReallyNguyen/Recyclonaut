@@ -1,6 +1,6 @@
 .chartContainer {
     position: absolute;
-    top: 96%;
+    top: 46rem;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
